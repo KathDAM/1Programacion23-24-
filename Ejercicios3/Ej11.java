@@ -22,17 +22,15 @@ public class Ej11{
         System.out.println("Proporciona un número(4): ");
         int num4 = lect.nextInt();
 
-        int res = esCapicua(num1,num2,num3,num4);
-
-        if (res == ) {
-            
+        if (esCapicua(num1,num2,num3,num4)) {
+            System.out.println("Los numeros " + num1 +","+num2+","+num3+","+num4+" es Capicua");
         } else {
-            System.out.println("");
+            System.out.println("\"Los numeros \" + num1 +\",\"+num2+\",\"+num3+\",\"+num4+\" es no Capicua\"");
         }
                 
     }
 
-    static int esCapicua(int a,int b,int c,int d){
+    static boolean esCapicua(int a,int b,int c,int d){
 
         return d;
 
