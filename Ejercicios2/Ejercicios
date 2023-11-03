@@ -1,0 +1,72 @@
+U3.- ESTRUCTURAS DE CONTROL
+a) condicionales
+1. Escribe un programa que solicite la edad de una persona y muestre un
+mensaje por pantalla indicando si es mayor de edad o no
+2. Escribe un programa que solicite la edad de una persona y muestre un
+mensaje por pantalla que indique si es mayor o menor que 25
+3. Escriba un programa en el que se solicite un número entero al usuario y el
+programa escribirá un mensaje por pantalla que indique si se trata de un
+número par o de un número impar
+4. Escribe un programa que solicite dos números reales y los escriba
+ordenados de menor a mayor
+5. Escribe un programa que permita introducir una calificación (entre cero y
+diez) e imprima su equivalente alfabético, según la siguiente tabla.
+De 3 -------> M.D.
+Desde 3 y menor que 5 -------> INS.
+Desde 5 y menor que 6 -------> SUF.
+Desde 6 y menor que 7 -------> BIEN
+Desde 7 y menor que 9 -------> NOT.
+Desde 9 hasta 10 -------> SOB.
+6. Escribe un programa que solicite un valor real que indica una cantidad de
+dinero en euros. El programa debe mostrar por pantalla la mínima cantidad
+de monedas de cada tipo en que se debe devolver la cantidad de dinero
+indicada.
+7. Escribe un programa que calcule la cuota que se debe abonar en el club de
+golf. La cuota es de 500 €. Tendrán un 50% de descuento las personas
+mayores de 65 años y un 25% los menores de 18 años si los padres no son
+socios y 35% si los padres son socios.
+8. Escribe un programa para calcular la edad de una persona solicitando la
+fecha actual y la fecha de su nacimiento.
+9. Escribe un programa que solicite tres valores enteros con el día, mes y año
+de una fecha e indique si se trata de valores válidos para una fecha.
+Programación - DAM U03 – Ejercicios 1
+2
+b) bucles
+1. Mostrar los números 48, 50, 52, 54,……...., 100.
+2. Calcular la suma de los números comprendidos entre uno y mil.
+3. Mostrar los impares de 1 a 99 indicando al final cuantos son. Repetir para
+los pares y para los múltiplos de cinco.
+4. Introducir A y B que sea mayor que A. Visualizar los números de A hasta B
+e indicar cuantos hay que sean pares.
+5. Visualizar los números de 1 a 100 e indicar al final: Cuantos hay pares y su
+suma. Cuantos hay impares y su suma. Cuantos hay que sean múltiplos de
+cuatro y de siete y su suma.
+6. Visualizar la tabla de multiplicar del uno al diez.
+7. Escribe un programa que calcule la potencia de un número real (a) elevado
+a un número entero (b). Tenga en cuenta que tanto a como b pueden valer
+0 o pueden ser números negativos.
+8. Escribe un programa que solicite un número estero e indique si se trata de
+un número primo o no.
+9. Escribe un programa que solicite al usuario un número entero positivo. El
+programa debe presentar en pantalla la descomposición en factores primos
+de dicho número.
+Por ejemplo, si el número es 36 debe escribir 36=2 *2 * 3 * 3.
+10. Escribe un programa que permita determinar si utilizar los números
+aleatorios de la clase Math son apropiados. Para ello el programa debe
+simular que se lanza una moneda un número elevado de veces, por
+ejemplo, 1.000.000. A continuación debe imprimir por pantalla el porcentaje
+de caras y el porcentaje de cruces que han salido.
+
+11. Escribe un programa que juegue con el usuario a adivinar un número. El
+ordenador debe generar un número entre 1 y 100 y el usuario tiene que
+intentar adivinarlo. Para ello, cada vez que el usuario introduce un valor, el
+ordenador debe decirle al usuario si el número que tiene que adivinar es
+mayor o menor que el que ha introducido. Cuando consiga adivinarlo debe
+indicárselo y visualizar el número de veces que el usuario ha intentado
+adivinar el número. Si el usuario introduce algo que no es un número debe
+indicarlo de esta forma en pantalla.
+
+12. Escribe un programa que permita determinar la probabilidad con que
+aparece cada uno de los valores al lanzar un dado. Para ello se lanzará el
+dado 1.000.000 de veces y se visualizará cuántas veces a aparecido cada
+número y el porcentaje que representa respecto al total.
