@@ -3,7 +3,7 @@ package Ejercicios3;
 
 import java.util.Scanner;
 
-public class Ej5{
+public class Ej5 {
     public static void main(String[] args) {
         System.out.println("Ejercicio 5");
         System.out.println(" ");
@@ -28,6 +28,7 @@ public class Ej5{
         lect.close();
     }
 
+   /* Esto esta incorrecto:
     static int obtenerMayor(int a, int b,int c, int d){
         if (a > b && a > c && a > d) {
             return a;
@@ -38,5 +39,16 @@ public class Ej5{
         } else{
             return d;
         }
-    }
+    }  
+ */
+    static int obtenerMayor(int a, int b,int c, int d){
+       Ej3.obtenerMayor(a,b);
+       Ej3.obtenerMayor(c,d);
+       int res =  Ej3.obtenerMayor(a,b);
+       int res2 =  Ej3.obtenerMayor(c,d);
+
+       return Ej3.obtenerMayor(res, res2);
+       
+    }  
+
 }
