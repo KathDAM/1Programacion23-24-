@@ -14,6 +14,8 @@ public class Ej10{
         long res = calculoFactorial(num);
 
         System.out.println("El factorial de " + num + " es " + res);
+
+        lect.close();
     }
 
     static long calculoFactorial(int a){
