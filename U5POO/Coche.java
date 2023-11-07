@@ -1,57 +1,77 @@
 //Catherine AM
-
 package U5POO;
 
 public class Coche {
-    private int modelo;
+
+    private String modelo;
     private String color;
-    private enum metalizado{
-        METALIZADO, NOMETALIZADO;
+    private boolean metalizado;
+    private String matricula;
+    private TipoCoche tipo;
+    private int anofabri;
+    private ModalidadSeguro seguro;
+
+     // ENUM
+    public enum ModalidadSeguro {
+        TERCEROS, TODO_RIESGO
     }
-    private enum tipoCoche {
+
+    public enum TipoCoche {
         MINI, UTILITARIO, FAMILIAR,DEPORTIVO;
     }
-    private int anofabri;
-    private String seguro;
 
-    //GETTER
-    public int getModelo() {
-        return modelo;
-    }
-    public String getColor() {
-        return color;
-    }
- 
-    public int getAnofabri() {
-        return anofabri;
-    }
-    public String getSeguro() {
-        return seguro;
-    }
-
-    //SETTER
-    public void setModelo(int modelo) {
+    // Constructor
+    public Coche(String modelo, String color, boolean metalizado, String matricula, TipoCoche tipo, int anoFabricacion, ModalidadSeguro seguro) {
         this.modelo = modelo;
-    }
-    public void setColor(String color) {
         this.color = color;
-    }
-    public void setAnofabri(int anofabri) {
-        this.anofabri = anofabri;
-    }
-    public void setSeguro(String seguro) {
+        this.metalizado = metalizado;
+        this.matricula = matricula;
+        this.tipo = tipo;
+        this.anofabri = anoFabricacion;
         this.seguro = seguro;
     }
 
-    //METODOS
-    public static void imprimeCoche(){
-        System.out.println(getModelo + getColor);
+    //GETTER
+    public String getModelo() {
+        return modelo;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public boolean isMetalizado() {
+        return metalizado;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public TipoCoche getTipo() {
+        return tipo;
+    }
+
+    public int getAnoFabricacion() {
+        return anofabri;
+    }
+
+    public ModalidadSeguro getSeguro() {
+        return seguro;
+    }
+
+    //METODOS
+    public void imprimeCoche(){
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Color: " + color);
+    }
+}
+
+ 
   
     
    
 
    
 
-}
+
