@@ -2,25 +2,26 @@
 package unidad5.ejercicio3;
 
 public class Punto {
-    //ATRIBUTOS
-    private double x,y;
+    // ATRIBUTOS
+    private double x, y;
 
-    //CONSTRUCTOR
+    // CONSTRUCTOR
     public Punto(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    //GETTER
-    public double getX() {
+    // GETTER
+    public double getGetX() {
         return x;
     }
+
     public double getY() {
         return y;
     }
 
-    //SETTER
-    public void setX(double x) {
+    // SETTER
+    public void setGetX(double x) {
         this.x = x;
     }
 
@@ -28,19 +29,20 @@ public class Punto {
         this.y = y;
     }
 
-    //METODOS
-    public void imprimirCoordenadas(){
-        System.out.println("Coordenada X: " + x);
-        System.out.println("Coordenada Y: " + y);
+    // METODOS
+    public void imprimirCoordenadas() {
+        System.out.print("(" + x);
+        System.out.print(" , " + y + ")");
+        System.out.println();
     }
 
-    public double calcularDistanciapuntoapunto(){
+    public double calcularDistanciapuntoapunto(Punto puntoB) {
+        result.x = this.x -puntoB;
+        return x;
+    }
+
+    public double calcularDistanciaotropunto() {
         return 0;
     }
-
-    public double calcularDistanciaotropunto(){
-        return 0;
-    }
-
 
 }
