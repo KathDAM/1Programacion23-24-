@@ -1,3 +1,4 @@
+//Catherine AM
 package unidad5static.ejercicio1;
 
 public class Consumo {
@@ -10,12 +11,12 @@ public class Consumo {
     }
 
     //METODOS
-    public static void incrementarConsumo(){
-
+    public void incrementarConsumo(int watios){
+        consumo += watios;
     }
 
-    public static void disminuirConsumo(){
-
+    public void disminuirConsumo(int watios){
+        consumo -= watios;
     }
 
 

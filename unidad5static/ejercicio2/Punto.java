@@ -1,23 +1,26 @@
 //Catherine AM
-package unidad5.ejercicio3;
+package unidad5static.ejercicio2;
 
 public class Punto {
-    //ATRIBUTOS
+    // ATRIBUTOS
     private double x, y;
 
-    //CONSTRUCTOR CON PARAMETROS
+    // CONSTANTE
+    public static Punto ORIGEN = new Punto(0, 0);
+
+    // CONSTRUCTOR CON PARAMETROS
     public Punto(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    //CONSTRUCTOR SIN PARAMETROS
+    // CONSTRUCTOR SIN PARAMETROS
     public Punto() {
         this.x = 0;
         this.y = 0;
     }
 
-    //GETTER
+    // GETTER
     public double getX() {
         return x;
     }
@@ -26,7 +29,7 @@ public class Punto {
         return y;
     }
 
-    //SETTER
+    // SETTER
     public void setX(double x) {
         this.x = x;
     }
@@ -35,7 +38,7 @@ public class Punto {
         this.y = y;
     }
 
-    //METODOS
+    // METODOS
     public void imprimirCoordenadas() {
         System.out.print("(" + x + " , " + y + ")");
         System.out.println();
@@ -52,11 +55,6 @@ public class Punto {
     public double distancia() {
         return Math.sqrt(x * x + y * y);
 
-    }
-
-    //imprime coordenadas en ejercicio 5
-    public String toString() {
-        return "( " + x + " , " + y + " )";
     }
 
 //--------------------------------------------------------------------------------------------------------

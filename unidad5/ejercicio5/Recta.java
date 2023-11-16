@@ -1,14 +1,20 @@
+//Catherine AM
 package unidad5.ejercicio5;
 
 public class Recta {
     //ATRIBUTOS
-    int posicion;
+    private double pendiente;
+    private double ordenadaAlOrigen;
 
     //CONSTRUCTOR
-    public Recta(int posicion) {
-        this.posicion = posicion;
+    public Recta(double pendiente, double ordenadaAlOrigen) {
+        this.pendiente = pendiente;
+        this.ordenadaAlOrigen = ordenadaAlOrigen;
     }
-    
-    //METODOS
+
+    //MÉTODO
+    public double evaluarEnX(double x) {
+        return pendiente * x + ordenadaAlOrigen;
+    }
     
 }

@@ -1,3 +1,4 @@
+//Catherine AM
 package unidad5static.ejercicio1;
 
 public class Aparato {
@@ -23,28 +24,23 @@ public class Aparato {
         return watios;
     }
     
+    public boolean estaApagado() {
+        return apagado;
+    }
+
     //METODOS
 
-    public static boolean encenderAparato(String nombre,boolean apagado){
-        if (apagado) {
-            
-        } else {
-            
-        }
-        return apagado;
-        
+      public void encender() {
+        apagado = false;
+        System.out.println(nombre + " encendido.");
     }
 
-     public static boolean apagadoAparato(String nombre,boolean apagado){
-        if (apagado) {
-            
-        } else {
-            
-        }
-        return apagado;
-        
+    public void apagar() {
+        apagado = true;
+        System.out.println(nombre + " apagado.");
     }
-
-
-
 }
+
+
+
+
