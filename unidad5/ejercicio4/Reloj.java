@@ -40,7 +40,7 @@ public class Reloj {
         if(hora < 0 || hora > 24){
             System.out.println("Valor incorrecto de hora");
         } else{
-        this.hora = hora;
+            this.hora = hora;
         }
     }
 
@@ -79,14 +79,14 @@ public class Reloj {
     }
 
     //Poner la hora especificando si es AM o es PM
-    public void ponerEnHoraPeriodo(int nuevaHora, int min, String periodo) {
-        if (periodo.equalsIgnoreCase("AM") || periodo.equalsIgnoreCase("PM")) {
-            if (periodo.equalsIgnoreCase("PM") && nuevaHora < 12) {
+    public void ponerEnHoraPeriodo(int nuevaHora, int min, String formato) {
+        if (formato.equalsIgnoreCase("AM") || formato.equalsIgnoreCase("PM")) {
+            if (formato.equalsIgnoreCase("PM") && nuevaHora < 12) {
                 nuevaHora += 12;
-            } else if (periodo.equalsIgnoreCase("AM") && nuevaHora == 12) {
+            } else if (formato.equalsIgnoreCase("AM") && nuevaHora == 12) {
                 nuevaHora = 0;
             }
-            System.out.println("Cambio de hora en formato 12H: " + (nuevaHora-12) + " : " + min + " " + periodo);
+            System.out.println("Cambio de hora en formato 12H: " + (nuevaHora-12) + " : " + min + " " + formato);
         } else {
             System.out.println("Formato de periodo incorrecto. Usa AM o PM.");
         }
