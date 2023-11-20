@@ -7,7 +7,6 @@ public class Ej4 {
         Scanner lect = new Scanner(System.in);
         System.out.println("BIENVENIDO AL EJERCICIO 4");
 
-
     //SOLICITUD DEL ARRAY 
         int tamaño;
         do {
