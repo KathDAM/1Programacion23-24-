@@ -1,4 +1,4 @@
-package PruebaTest;
+package pruebatest;
 
 import java.util.Scanner;
 
@@ -7,10 +7,18 @@ public class CalculadoraTest {
         System.out.println("Ejercicio 4e.Calculadora Binaria");
         Scanner lect = new Scanner(System.in);
 
-        System.out.println(CalculadoraBinaria.sumarNum(0, 7));
-        System.out.println(CalculadoraBinaria.restarNum(-1, 4));
-        System.out.println(CalculadoraBinaria.multipliNum(2,5));
-        System.out.println(CalculadoraBinaria.dividirNum(8, 0));
+        System.out.println("Ingresa el primer operando: ");
+        double num1 = lect.nextDouble();
+
+        System.out.println("Ingresa el segundo operando: ");
+        double num2 = lect.nextDouble();
+
+        CalculadoraBinaria calculadora = new CalculadoraBinaria(num1,num2);
+
+        System.out.println(calculadora.sumarNum());
+        System.out.println(calculadora.restarNum());
+        System.out.println(calculadora.multipliNum());
+        System.out.println(calculadora.dividirNum());
 
         lect.close();
     }

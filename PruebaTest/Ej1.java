@@ -1,4 +1,4 @@
-package PruebaTest;
+package pruebatest;
 
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class Ej1 {
             }else{
                 System.out.print(num + "x" + i + "=" + i * num + " , ");
             }
-        }
+        } 
 
         lect.close();
     }

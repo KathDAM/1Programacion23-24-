@@ -1,4 +1,4 @@
-package PruebaTest;
+package pruebatest;
 
 import java.util.Scanner;
 
@@ -8,14 +8,16 @@ public class CalculadoraBinaria {
         Scanner lect = new Scanner(System.in);
 
         System.out.println("Dame un número real:  ");
-        int num1 = lect.nextInt();
+        double num1 = lect.nextDouble();
         System.out.println("Dame otro número real:");
-        int num2 = lect.nextInt();
+        double num2 = lect.nextDouble();
 
-        System.out.println("El total de la suma entre " + num1 + " y " + num2 + " es " + sumarNum(num1,num2));
-        System.out.println("El total de la resta entre " + num1 + " y " + num2 + " es " + restarNum(num1,num2));
-        System.out.println("El total de la multiplicacion entre " + num1 + " y " + num2 + " es " + multipliNum(num1, num2));
-        System.out.println("El total de la division entre " + num1 + " y " + num2 + " es " + dividirNum(num1,num2));
+        CalculadoraBinaria calculadora = new CalculadoraBinaria(num1,num2);
+
+        System.out.println("El total de la suma entre " + num1 + " y " + num2 + " es " + calculadora.sumarNum());
+        System.out.println("El total de la resta entre " + num1 + " y " + num2 + " es " + calculadora.restarNum());
+        System.out.println("El total de la multiplicacion entre " + num1 + " y " + num2 + " es " + calculadora.multipliNum());
+        System.out.println("El total de la division entre " + num1 + " y " + num2 + " es " + calculadora.dividirNum());
 
         lect.close();
     }
@@ -38,7 +40,7 @@ public class CalculadoraBinaria {
 
     //CONSTRUCTOR QUE ADMITE OTRA CALCULADORA (c)
     public CalculadoraBinaria(CalculadoraBinaria otra) {
-        this.setA(otra.a);
+        this.setA(otra.a); //this.a = otra.a;
         this.setB(otra.b);
     }
 
@@ -61,29 +63,30 @@ public class CalculadoraBinaria {
     }
 
     //METODOS
-    public static double sumarNum(double a, double b){
+    public double sumarNum(){
         res = a + b;
         return res;
     }
 
-    public static double restarNum(double a, double b){
+    public double restarNum(){
         res = a - b;
         return res;
     }
 
-    public static double multipliNum(double a, double b){
+    public double multipliNum(){
         res = a * b;
         return res;
     }
 
-    public static double dividirNum(double a, double b){
+    public double dividirNum(){
         if (b==0) {
             System.out.println("No se puede dividir por cero");
+            return 0;
         } else {
             res = (a / b);
-            System.out.println("El resultado es " + res);
+            return res;
         }
-        return res;
+       
     }
 
 }
