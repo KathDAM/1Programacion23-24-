@@ -10,8 +10,8 @@ public class Coche extends Vehiculo {
     }
 
     public void avanzar(int km){
-        if (gasolina == 0) {
-            System.out.println("No avanza, km a 0.");
+        if (gasolina != 0) {
+            System.out.println("No avanza, no hay gasolina.");
         } else {
             distancia += km;
             System.out.println("Avanza: " + km + " km.");

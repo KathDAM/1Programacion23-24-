@@ -14,7 +14,7 @@ public class Vehiculo {
     }   
 
     public void avanzar(int km){
-        distancia += km;
+        this.distancia += km;
         System.out.println("Avanza: " + km + " km.");
     }   
     
