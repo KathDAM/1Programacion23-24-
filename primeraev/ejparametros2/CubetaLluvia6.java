@@ -5,20 +5,18 @@ import java.util.Scanner;
 public class CubetaLluvia6 {
     static Scanner lect = new Scanner(System.in);
     private static long capacidad;
-    private static  int numDias;
+   
     public static void main(String[] args) {
 
     System.out.println("Escribe la capacidad de la cubeta, en litros: ");
-    long capacidad = lect.nextLong();
+    capacidad = lect.nextLong();
 
-    int dias = capacidadLluvia();
-    System.out.println("Fin de la simulación del llenado de la cubeta en " + cubeta.getNumDias() + " días");
-
+    capacidadLluvia();
     lect.close();
 }
 
     //FUNCIONES
-    private static long capacidadLluvia() {
+    private static void capacidadLluvia(){
         int numDiasTranscurridos = 0;
         long lluviaDiaria;
 
@@ -33,11 +31,12 @@ public class CubetaLluvia6 {
             }
             System.out.println("Día= " + numDiasTranscurridos + " Lluvia= " + lluviaDiaria + " Capacidad= " + capacidad);
         }
-        numDias = numDiasTranscurridos;
+
+        System.out.println("Fin de la simulación del llenado de la cubeta en " + numDiasTranscurridos + " días");
     }
 }
 
 
 
 
-}
+
