@@ -1,9 +1,9 @@
 package segundaev.ejemplos.ejemplo2;
 
 public class Coche extends Vehiculo {
-    public int ruedas = 4;
-    public float gasolina;
-    public float consumo;
+    protected int ruedas = 4;
+    protected float gasolina;
+    protected float consumo;
 
     public void repostar(int litros){
         gasolina += litros;
@@ -11,10 +11,18 @@ public class Coche extends Vehiculo {
 
     public void avanzar(int km){
         if (gasolina != 0) {
-            System.out.println("No avanza, no hay gasolina.");
+            float consumoReal = km * consumo;
+
+            if (gasolina >= consumoReal) {
+                distancia += km;
+                gasolina -= consumoReal;
+                System.out.println("Avanza: " + km + " km.");
+            } else {
+                System.out.println("No avanza, no hay gasolina.");
+            }
+
         } else {
-            distancia += km;
-            System.out.println("Avanza: " + km + " km.");
+            System.out.println("No avanza, no hay gasolina.");
         }
     }  
 

@@ -1,9 +1,9 @@
 package segundaev.ejemplos.ejemplo2;
 
 public class Vehiculo {
-    public int velocidad;
-    public int ruedas;
-    public float distancia = 0f;
+    protected int velocidad;
+    protected int ruedas;
+    protected float distancia = 0f;
 
     public void parar(){
         velocidad = 0;
@@ -18,8 +18,16 @@ public class Vehiculo {
         System.out.println("Avanza: " + km + " km.");
     }   
     
-
     public void imprimir(){
         System.out.println("Datos Vehiculo: Velocidad- " + velocidad + " , Ruedas- " + ruedas +  ".");
     }
 }
+
+/*
+    public void acelerar(int kmh){
+        if (velocidad !=  0) {
+            velocidad += kmh;
+        } else {
+            System.out.println("Velocidad crucero a 0");
+        }
+    }    */
