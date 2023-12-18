@@ -1,9 +1,10 @@
+// Catherine AM
 package segundaev.herencia.ejerciciosclases.ejercicio1;
 
-public class Hora extends Examen{
+public class Hora{
     // ATRIBUTOS
-    protected int hora;
-    protected int minuto;
+    private int hora;
+    private int minuto;
     
  
     // CONSTRUCTOR
@@ -18,12 +19,17 @@ public class Hora extends Examen{
     }
 
     public int getMinuto() {
-    return minuto;
+        return minuto;
     }
    
 
     // MÉTODOS
     public String toString(){
-    return getHora() + " : " + getMinuto();
+        return getHora() + " : " + getMinuto();
+    }
+
+    public void actualizarHora(int nuevaHora, int nuevoMinuto) {
+        this.hora = nuevaHora;
+        this.minuto = nuevoMinuto;
     }
 }

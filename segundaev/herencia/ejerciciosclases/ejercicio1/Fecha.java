@@ -1,6 +1,7 @@
+// Catherine AM
 package segundaev.herencia.ejerciciosclases.ejercicio1;
 
-public class Fecha extends Examen {
+public class Fecha{
     // ATRIBUTOS
     protected int dia;
     protected int mes;
@@ -28,5 +29,11 @@ public class Fecha extends Examen {
     // MÉTODOS
     public String toString(){
         return getDia() + " / " + getMes() + " / " + getAño();
+    }
+
+    public void actualizarFecha(int nuevoDia, int nuevoMes, int nuevoAño) {
+        this.dia = nuevoDia;
+        this.mes = nuevoMes;
+        this.año = nuevoAño;
     }
 }

@@ -1,37 +1,48 @@
+// Catherine AM
 package segundaev.herencia.ejerciciosclases.ejercicio2;
 
 public class Punto {
     // ATRIBUTOS
-    protected int x,y;
+    protected double x,y;
 
     // CONSTRUCTOR
-    public Punto(int x, int y) {
+    public Punto(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    // CONSTRUCTOR Inicializa las coordenadas en el origen por defecto (0,0)
+    public Punto() {
         this.x = 0;
         this.y = 0;
     }
 
     // SET
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
     // GET
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
     // METODOS
-    public int distancia(){
-        return 0;
+    public double distancia(Punto otroPunto){
+        double distanciaX = this.x - otroPunto.getX();
+        double distanciaY = this.y - otroPunto.getY();
+        return Math.sqrt(distanciaX * distanciaX + distanciaY * distanciaY);
     }
 
-
+    public String toString() {
+        return "( " + x + " , " + y + " )";
+    }
 }
