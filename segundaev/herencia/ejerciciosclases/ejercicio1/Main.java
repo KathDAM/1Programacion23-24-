@@ -3,8 +3,6 @@ package segundaev.herencia.ejerciciosclases.ejercicio1;
 
 import java.util.Scanner;
 
-import segundaev.herencia.ejerciciosclases.ejercicio2.Triangulo;
-
 public class Main {
     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
