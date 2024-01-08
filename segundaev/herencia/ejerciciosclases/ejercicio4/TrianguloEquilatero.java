@@ -86,7 +86,7 @@ public class TrianguloEquilatero {
         double lado2 = punto2.distancia(punto3);
         double lado3 = punto3.distancia(punto1);
 
-        return Math.abs(lado1 - lado2) < 1e-5 && Math.abs(lado2 - lado3) < 1e-5 && Math.abs(lado3 - lado1) < 1e-5;
+        return Math.abs(lado1 - lado2) < 1-5 && Math.abs(lado2 - lado3) < 1-5 && Math.abs(lado3 - lado1) < 1-5;
     }
     
     public String toString(){

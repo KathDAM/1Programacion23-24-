@@ -3,10 +3,10 @@ package segundaev.herencia.ejerciciosclases.ejercicio5;
 
 public class Coche {
     // ATRIBUTOS
-    private String matricula;
-    private double velocidad;
-    private int marcha;
-    private double limiteVelocidad;
+    protected String matricula;
+    protected double velocidad;
+    protected int marcha;
+    protected double limiteVelocidad;
 
     // CONSTRUCTOR
     public Coche(String matricula, double limiteVelocidad) {
@@ -62,7 +62,7 @@ public class Coche {
             marcha = nuevaMarcha;
             return true;
         } else {
-            System.out.println("Marcha no válida. Debe estar en el rango 0..6.");
+            System.out.println("Marcha no válida. Debe estar en el rango 0 a 6.");
             return false;
         }
     }
