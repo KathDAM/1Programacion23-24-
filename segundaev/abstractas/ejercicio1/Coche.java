@@ -29,7 +29,6 @@ public class Coche extends Vehiculo {
     public void reiniciarKmRecorridos(){
         this.kmRecorridos = 0;
         System.out.println("Cuentakilómetros reiniciado a 0.");
-  
     }
 }
 

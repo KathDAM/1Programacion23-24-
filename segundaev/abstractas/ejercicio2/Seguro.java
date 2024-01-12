@@ -1,12 +1,22 @@
 package segundaev.abstractas.ejercicio2;
 
-public abstract class Seguro{
+public abstract class Seguro {
     // ATRIBUTOS
     protected Asegurado asegurado;
+    protected int primaBase = 100;
 
     // CONSTRUCTOR
-    public Seguro(int anyoNac,String nombre,String primerApellido,String segundoApellido, Asegurado asegurado) {
-        super( anyoNac, nombre, primerApellido, segundoApellido);
+    public Seguro(Asegurado asegurado) {
+        this.asegurado = asegurado;
+    }
+
+    // GETTER
+    public Asegurado getAsegurado() {
+        return asegurado;
+    }
+
+    // SETTER
+    public void setAsegurado(Asegurado asegurado) {
         this.asegurado = asegurado;
     }
 
