@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.herencia.ejerciciosclases.ejercicio5;
+package segundaev.herencia.ejerciciosclases.ejercicio6;
 
 public class CocheManual extends Coche{
     

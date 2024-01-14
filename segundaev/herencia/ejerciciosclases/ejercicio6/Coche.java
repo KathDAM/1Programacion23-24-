@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.herencia.ejerciciosclases.ejercicio5;
+package segundaev.herencia.ejerciciosclases.ejercicio6;
 
 public class Coche {
     // ATRIBUTOS
@@ -67,8 +67,13 @@ public class Coche {
         }
     }
 
+    public static void detenerCoche(Coche coche){
+        coche.frenar(coche.getVelocidad());
+    }
+
     public String toString() {
         return "Coche: Matrícula=" + matricula + ", Velocidad=" + velocidad +", Marcha=" + marcha +", Límite de Velocidad Máxima=" + limiteVelocidad;
     }
+
 }
 
