@@ -1,10 +1,10 @@
 // Catherine AM
-package segundaev.abstractas.ejercicio2;
+package segundaev.interfaces.ejercicio4;
 
-public class SeguroVida extends Seguro {
+public class SeguroVida2 extends Seguro2 {
 
     // CONSTRUCTOR
-    public SeguroVida(Asegurado asegurado) {
+    public SeguroVida2(Asegurado2 asegurado) {
         super(asegurado);
     }
 
