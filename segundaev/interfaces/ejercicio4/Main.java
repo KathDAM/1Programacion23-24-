@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.abstractas.ejercicio2;
+package segundaev.interfaces.ejercicio4;
 
 import java.util.Scanner;
 
@@ -29,22 +29,30 @@ public class Main {
             apellido2 = lect.nextLine();
         }
 
-        Asegurado asegurado = new Asegurado(anyo, nombre, apellido1, apellido2);
+        Asegurado2 asegurado = new Asegurado2(anyo, nombre, apellido1, apellido2);
         asegurado.calculoEdad();
+
+        Seguro2 seguro1, seguro2;
 
         System.out.println("¿Que seguro quieres contratar? \n" + "  1. Seguro de Decesos \n" + "  2. Seguro de Vida \n");
         opcion = lect.nextInt();
 
-        Seguro seguro;
+        if (opcion == 1) {
+            seguro1 = new SeguroDecesos2(asegurado);
+        } else {
+            seguro1 = new SeguroVida2(asegurado);
+        }
+        asegurado.toString();
 
         if (opcion == 1) {
-            seguro = new SeguroDecesos(asegurado);
+            seguro2 = new SeguroDecesos2(asegurado);
         } else {
-            seguro = new SeguroVida(asegurado);
+            seguro2 = new SeguroVida2(asegurado);
         }
+        asegurado.toString();
 
-        float primaAnual = seguro.calcularPrimaAnual();
-        System.out.println("Importe de la prima anual correspondiente: " + primaAnual);
- 
-    }
+        float primaAnual = seguro1.compareTo(seguro2);
+        System.out.println(primaAnual);
+
+    }  
 }

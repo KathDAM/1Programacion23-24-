@@ -86,7 +86,7 @@ public class Main {
             manual = new CocheManual(matricula, limiteVelocidad);
             System.out.println("Coche manual inicializado correctamente.");
         } else {
-            System.out.println("El coche manual ya está inicializado.");
+            System.out.println("El coche manual ya está inicializado. ¿Deseas sobrescribirlo? (S/N)");
             String respuesta = lect.next().trim().toLowerCase();
             lect.nextLine();  // Vaciar buffer
             if (respuesta.equals("s")) {

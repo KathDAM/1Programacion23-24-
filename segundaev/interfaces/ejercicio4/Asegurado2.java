@@ -1,9 +1,9 @@
 // Catherine AM
-package segundaev.abstractas.ejercicio2;
+package segundaev.interfaces.ejercicio4;
 
 import java.util.Calendar;
 
-public class Asegurado{
+public class Asegurado2{
     // ATRIBUTOS
     private int anyoNac;
     private String nombre;
@@ -13,7 +13,7 @@ public class Asegurado{
 
 
     // CONSTRUCTORES
-    public Asegurado(int anyoNac,String nombre,String primerApellido,String segundoApellido) {
+    public Asegurado2(int anyoNac,String nombre,String primerApellido,String segundoApellido) {
         this.anyoNac = anyoNac;
         this.nombre = nombre;
         this.primerApellido = primerApellido;

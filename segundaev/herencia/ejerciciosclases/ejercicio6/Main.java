@@ -66,7 +66,19 @@ public class Main {
             automatico = new CocheAutomatico(matricula, limiteVelocidad);
             System.out.println("Coche automático inicializado correctamente.");
         } else {
-            System.out.println("El coche automático ya está inicializado.");
+            System.out.println("El coche automático ya está inicializado. ¿Deseas sobrescribirlo? (S/N)");
+            String respuesta = lect.next().trim().toLowerCase();
+            lect.nextLine();  // Vaciar buffer
+            if (respuesta.equals("s")) {
+                System.out.println("Introduce la nueva matrícula del coche automático: ");
+                String matricula = lect.nextLine();
+                System.out.println("Introduce el nuevo límite de velocidad máxima: ");
+                double limiteVelocidad = lect.nextDouble();
+                automatico = new CocheAutomatico(matricula, limiteVelocidad);
+                System.out.println("Coche automático sobrescrito correctamente.");
+            } else {
+                System.out.println("Operación cancelada. El coche automático no ha sido sobrescrito.");
+            }
         }
     }
 
@@ -79,10 +91,21 @@ public class Main {
             manual = new CocheManual(matricula, limiteVelocidad);
             System.out.println("Coche manual inicializado correctamente.");
         } else {
-            System.out.println("El coche manual ya está inicializado.");
+            System.out.println("El coche manual ya está inicializado. ¿Deseas sobrescribirlo? (S/N)");
+            String respuesta = lect.next().trim().toLowerCase();
+            lect.nextLine();  // Vaciar buffer
+            if (respuesta.equals("s")) {
+                System.out.println("Introduce la nueva matrícula del coche manual: ");
+                String matricula = lect.nextLine();
+                System.out.println("Introduce el nuevo límite de velocidad máxima: ");
+                double limiteVelocidad = lect.nextDouble();
+                manual = new CocheManual(matricula, limiteVelocidad);
+                System.out.println("Coche manual sobrescrito correctamente.");
+            } else {
+                System.out.println("Operación cancelada. El coche manual no ha sido sobrescrito.");
+            }
         }
     }
-
     private static void acelerar(CocheAutomatico automatico, CocheManual manual) {
         int opcionCoche = seleccionarCoche();
 
