@@ -1,4 +1,4 @@
-package ejerciciosopcionales;
+package ejerciciosopcionales.ejercicio6;
 
 import java.util.Scanner;
 
@@ -19,5 +19,6 @@ public class Temperatura {
             System.out.println("El clima sera : Tropical");
         }
 
+        lect.close();
     }
 }

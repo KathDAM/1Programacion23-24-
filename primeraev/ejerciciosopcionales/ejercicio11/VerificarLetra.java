@@ -1,4 +1,4 @@
-package ejerciciosopcionales;
+package ejerciciosopcionales.ejercicio11;
 import java.util.Scanner;
 
 public class VerificarLetra {

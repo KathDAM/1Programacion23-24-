@@ -1,4 +1,4 @@
-package ejerciciosopcionales;
+package ejerciciosopcionales.ejercicio7;
 
 import java.util.Scanner;
 
