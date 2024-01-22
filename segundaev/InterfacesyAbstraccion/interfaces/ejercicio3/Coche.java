@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.interfaces.ejercicio3;
+package segundaev.InterfacesyAbstraccion.interfaces.ejercicio3;
 
 public class Coche extends Vehiculo {
     // ATRIBUTOS

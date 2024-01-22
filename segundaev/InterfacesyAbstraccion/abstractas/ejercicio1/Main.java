@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.interfaces.ejercicio3;
+package segundaev.InterfacesyAbstraccion.abstractas.ejercicio1;
 
 public class Main {
     public static void main(String[] args) {

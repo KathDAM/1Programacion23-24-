@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.interfaces.ejercicio4;
+package segundaev.InterfacesyAbstraccion.interfaces.ejercicio4;
 
 public abstract class Seguro2 implements Comparable<Seguro2> {
     // ATRIBUTOS
