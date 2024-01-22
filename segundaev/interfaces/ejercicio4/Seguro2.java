@@ -4,8 +4,6 @@ package segundaev.interfaces.ejercicio4;
 public abstract class Seguro2 implements Comparable<Seguro2> {
     // ATRIBUTOS
     protected Asegurado2 asegurado;
-    protected int primaBase = 100;
-
 
     // CONSTRUCTOR
     public Seguro2(Asegurado2 asegurado) {

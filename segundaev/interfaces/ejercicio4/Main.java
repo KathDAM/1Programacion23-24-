@@ -5,9 +5,21 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner lect = new Scanner(System.in);
-    static int opcion; 
     public static void main(String[] args) {
+        Asegurado2 asegurado1 = obtenerDatosAsegurado();
+        Seguro2 seguro1 = elegirSeguro(asegurado1);
+        System.out.println(asegurado1);
+        mostrarInfoSeguro(seguro1);
 
+        Asegurado2 asegurado2 = obtenerDatosAsegurado();
+        Seguro2 seguro2 = elegirSeguro(asegurado2);
+        System.out.println(asegurado2);
+        mostrarInfoSeguro(seguro2);
+
+        compararPrimas(seguro1, seguro2);
+    }
+
+    private static Asegurado2 obtenerDatosAsegurado() {
         System.out.println("Escribe los datos siguientes: ");
         System.out.print("Año de nacimiento: ");
         int anyo = lect.nextInt();
@@ -32,27 +44,35 @@ public class Main {
         Asegurado2 asegurado = new Asegurado2(anyo, nombre, apellido1, apellido2);
         asegurado.calculoEdad();
 
-        Seguro2 seguro1, seguro2;
+        return asegurado;
+    }
 
+    private static Seguro2 elegirSeguro(Asegurado2 asegurado) {
         System.out.println("¿Que seguro quieres contratar? \n" + "  1. Seguro de Decesos \n" + "  2. Seguro de Vida \n");
-        opcion = lect.nextInt();
+        int opcion = lect.nextInt();
 
         if (opcion == 1) {
-            seguro1 = new SeguroDecesos2(asegurado);
+            return new SeguroDecesos2(asegurado);
         } else {
-            seguro1 = new SeguroVida2(asegurado);
+            return new SeguroVida2(asegurado);
         }
-        asegurado.toString();
+    }
 
-        if (opcion == 1) {
-            seguro2 = new SeguroDecesos2(asegurado);
+    private static void mostrarInfoSeguro(Seguro2 seguro){
+        float primaAnual = seguro.calcularPrimaAnual();
+        System.out.println("El importe de la prima anual es " + primaAnual);
+    }
+    
+    private static void compararPrimas(Seguro2 seguro1, Seguro2 seguro2){
+        int comparar =  seguro1.compareTo(seguro2);
+        if (comparar < 0) {
+        System.out.println("Prima de seguro1 es menor por " + comparar);
+        } else if (comparar > 0) {
+            System.out.println("Prima de seguro2 es menor por " + comparar);
         } else {
-            seguro2 = new SeguroVida2(asegurado);
+            System.out.println("Las primas son iguales");
         }
-        asegurado.toString();
+    }   
+}   
 
-        float primaAnual = seguro1.compareTo(seguro2);
-        System.out.println(primaAnual);
 
-    }  
-}

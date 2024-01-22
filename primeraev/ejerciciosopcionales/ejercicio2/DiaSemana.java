@@ -1,4 +1,4 @@
-package ejerciciosopcionales;
+package ejerciciosopcionales.ejercicio2;
 /* 2. Escribe un programa que pida el día de la semana (del 1 al 7) y muestre por 
 pantalla el día correspondiente (lunes, martes, miércoles…). Si el usuario 
 introduce un valor no válido, el sistema debe mostrar un mensaje de error*/
