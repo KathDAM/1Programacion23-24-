@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.abstractas.ejercicio1;
+package segundaev.InterfacesyAbstraccion.abstractas.ejercicio1;
 
 public abstract class Vehiculo {
     // ATRIBUTOS

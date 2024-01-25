@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.interfaces.ejercicio4;
+package segundaev.InterfacesyAbstraccion.interfaces.ejercicio4;
 
 import java.util.Scanner;
 
@@ -73,6 +73,4 @@ public class Main {
             System.out.println("Las primas son iguales");
         }
     }   
-}   
-
-
+}  

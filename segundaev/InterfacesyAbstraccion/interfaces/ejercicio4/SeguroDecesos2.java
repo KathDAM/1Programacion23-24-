@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.interfaces.ejercicio4;
+package segundaev.InterfacesyAbstraccion.interfaces.ejercicio4;
 
 public class SeguroDecesos2 extends Seguro2 {
     

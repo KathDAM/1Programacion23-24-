@@ -1,10 +1,10 @@
 // Catherine AM
-package segundaev.abstractas.ejercicio2;
+package segundaev.InterfacesyAbstraccion.interfaces.ejercicio4;
 
-public class SeguroVida extends Seguro {
+public class SeguroVida2 extends Seguro2 {
 
     // CONSTRUCTOR
-    public SeguroVida(Asegurado asegurado) {
+    public SeguroVida2(Asegurado2 asegurado) {
         super(asegurado);
     }
 
@@ -25,6 +25,6 @@ public class SeguroVida extends Seguro {
             System.out.println("No se puede contratar un seguro de vida");
             return 0;
         }
-        return primaBase * factorMultiplicado;
+        return this.asegurado.getEdad() * factorMultiplicado;
     }
 }
