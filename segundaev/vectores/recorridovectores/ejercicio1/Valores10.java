@@ -12,13 +12,13 @@ public class Valores10{
         System.out.println("Introduce 10 valores en el vector: ");
 
         for (int i = 0; i < vector.length; i++) {
-            System.out.println("Elemento " + (i + 1) + ":");
+            System.out.print("Elemento " + (i + 1) + ":  ");
             vector[i] = lect.nextInt();
         }
 
         System.out.println("Valores introducidos en el vector: ");
         for (int i = 0; i < vector.length; i++) {
-            System.out.println(vector[i] + " , ");
+            System.out.print("[ " + vector[i] + " ]");
         }
         lect.close();
     }
