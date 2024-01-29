@@ -17,19 +17,22 @@ public class TrianguloEquilatero {
 
     // NUEVO CONSTRUCTOR
     public TrianguloEquilatero(Punto punto1, Punto punto2) {
+        this(punto1, punto2, calcularPuntoNuevo(punto1, punto2)); //invocamos del constructor general, y hacemos un metodo especifico para calcularPuntoNuevo, y sacar el tercer punto
+    }
+
+    private static Punto calcularPuntoNuevo(Punto p, Punto q){
         // Calcular el tercer punto para formar un triángulo equilátero
-        double lado = punto1.distancia(punto2);
+        double lado = p.distancia(q);
         double angulo = Math.toRadians(60); // Ángulo de 60 grados 
 
-        double deltaX = punto2.getX() - punto1.getX();
-        double deltaY = punto2.getY() - punto1.getY();
+        double deltaX = q.getX() - p.getX();
+        double deltaY = q.getY() - p.getY();
 
-        double nuevoX = punto1.getX() + lado * Math.cos(angulo) + deltaY * Math.sin(angulo);
-        double nuevoY = punto1.getY() + lado * Math.sin(angulo) - deltaX * Math.cos(angulo);
+        double nuevoX = p.getX() + lado * Math.cos(angulo) + deltaY * Math.sin(angulo);
+        double nuevoY = p.getY() + lado * Math.sin(angulo) - deltaX * Math.cos(angulo);
 
-        this.punto1 = punto1;
-        this.punto2 = punto2;
-        this.punto3 = new Punto(nuevoX, nuevoY);
+        
+        return new Punto(nuevoX, nuevoY);
     }
 
     // METODOS
@@ -86,7 +89,7 @@ public class TrianguloEquilatero {
         double lado2 = punto2.distancia(punto3);
         double lado3 = punto3.distancia(punto1);
 
-        return Math.abs(lado1 - lado2) < 1-5 && Math.abs(lado2 - lado3) < 1-5 && Math.abs(lado3 - lado1) < 1-5;
+        return Math.abs(lado1 - lado2) < 0.001 && Math.abs(lado2 - lado3) < 0.001 && Math.abs(lado3 - lado1) < 0.001;
     }
     
     public String toString(){
