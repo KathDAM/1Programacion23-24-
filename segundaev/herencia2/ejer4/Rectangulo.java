@@ -1,4 +1,5 @@
-package segundaev.herencia2.ejer3;
+//Catherine AM
+package segundaev.herencia2.ejer4;
 
 public class Rectangulo extends Figura{
     // ATRIBUTOS
