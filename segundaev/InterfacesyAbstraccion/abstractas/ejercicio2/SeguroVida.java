@@ -25,6 +25,6 @@ public class SeguroVida extends Seguro {
             System.out.println("No se puede contratar un seguro de vida");
             return 0;
         }
-        return primaBase * factorMultiplicado;
+        return this.asegurado.getEdad() * factorMultiplicado;
     }
 }

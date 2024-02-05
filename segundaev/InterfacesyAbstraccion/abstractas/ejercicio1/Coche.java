@@ -20,7 +20,6 @@ public class Coche extends Vehiculo {
     public void avanzar(float km) {
         if (km > 0) {
             kmRecorridos += km;
-            System.out.println("El coche ha avanzado " + km + " kilómetros.");
         } else {
             System.out.println("La distancia a avanzar debe ser mayor que cero.");
         }

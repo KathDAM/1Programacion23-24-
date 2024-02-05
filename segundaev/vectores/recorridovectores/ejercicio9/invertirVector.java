@@ -38,7 +38,7 @@ public class invertirVector {
         String[] vectorInvertido = new String[vector.length];
         for (int i = 0; i < vector.length; i++) {
             vectorInvertido[i] = vector[vector.length - 1 - i];
-            System.out.print(" [" + vector[i] + "] ");
+            System.out.print(" [" + vectorInvertido[i] + "] ");
         }
     }
 }
