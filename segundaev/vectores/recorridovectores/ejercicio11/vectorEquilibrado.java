@@ -1,28 +1,16 @@
 // Catherine AM
 package segundaev.vectores.recorridovectores.ejercicio11;
 
-import java.util.Scanner;
+import segundaev.vectores.utilidades.Utilidades;
 
 public class vectorEquilibrado {
-    static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Introduce un tamaño de array: ");
-        int tamaño = lect.nextInt();
-        lect.nextLine(); //Vaciar buffer
+   
+        int[] vector = new int[Utilidades.tamañoVectorInt()];
 
-        int[] vector = new int[tamaño];
-
-        introducirValoresVector(vector);
+        Utilidades.introducirValoresInt(vector);
         vectorEsEquilibrado(vector);
      
-        lect.close();
-    }
-
-    public static void introducirValoresVector(int[] vector){
-        for (int i = 0; i < vector.length; i++) {
-            System.out.print("Elemento " + (i) + ":  "); 
-            vector[i] = lect.nextInt();
-        }
     }
 
     public static void vectorEsEquilibrado(int[] vector){

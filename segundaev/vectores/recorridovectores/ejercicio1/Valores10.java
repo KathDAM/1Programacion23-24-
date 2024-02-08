@@ -3,6 +3,8 @@ package segundaev.vectores.recorridovectores.ejercicio1;
 
 import java.util.Scanner;
 
+import segundaev.vectores.utilidades.Utilidades;
+
 public class Valores10{
     public static void main(String[] args) {
         Scanner lect = new Scanner(System.in);
@@ -11,15 +13,10 @@ public class Valores10{
 
         System.out.println("Introduce 10 valores en el vector: ");
 
-        for (int i = 0; i < vector.length; i++) {
-            System.out.print("Elemento " + (i + 1) + ":  ");
-            vector[i] = lect.nextInt();
-        }
+        Utilidades.introducirValoresInt(vector);
 
         System.out.println("Valores introducidos en el vector: ");
-        for (int i = 0; i < vector.length; i++) {
-            System.out.print("[ " + vector[i] + " ]");
-        }
+        Utilidades.mostrarVectorInt(vector);
         lect.close();
     }
 

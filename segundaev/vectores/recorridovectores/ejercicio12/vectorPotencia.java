@@ -2,8 +2,8 @@ package segundaev.vectores.recorridovectores.ejercicio12;
 
 import java.util.Scanner;
 
-public class vectorPotencias {
-    static Scanner lect = new Scanner(System.in);
+public class vectorPotencia {
+     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Introduce la base: ");
         double base = lect.nextDouble();
@@ -18,7 +18,6 @@ public class vectorPotencias {
             System.out.println(base + " ^ " + i + " = " + potencias[i]);
         }
         
-    
         lect.close();
     }
 

@@ -20,22 +20,18 @@ public class Capicua {
     }
 
     public static boolean esCapicua(String frase) {
-        // Eliminar espacios en blanco y convertir a minúsculas
-        frase = frase.replaceAll("\\s+", "").toLowerCase();
-        
-        // Convertir la frase en un array de caracteres
+        frase = frase.replaceAll("\\s+", "").toUpperCase();
         char[] caracteres = frase.toCharArray();
         
-        // Comparar los caracteres desde el principio y el final del array
         int inicio = 0;
         int fin = caracteres.length - 1;
         while (inicio < fin) {
             if (caracteres[inicio] != caracteres[fin]) {
-                return false; // No es capicúa
+                return false; // No capicúa
             }
             inicio++;
             fin--;
         }
-        return true; // Es capicúa
+        return true; // Capicúa
     }
 }
