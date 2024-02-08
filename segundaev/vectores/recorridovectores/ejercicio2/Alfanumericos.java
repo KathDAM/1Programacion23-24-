@@ -1,20 +1,13 @@
 package segundaev.vectores.recorridovectores.ejercicio2;
 
-import java.util.Scanner;
+import segundaev.vectores.utilidades.Utilidades;
 
 public class Alfanumericos {
     public static void main(String[] args) {
-        Scanner lect = new Scanner(System.in);
+     
+        String[] vector = new String[Utilidades.tamañoVectorInt()];
 
-        System.out.println("Introduce el tamaño del vector: ");
-        int n = Integer.parseInt(lect.nextLine());
-
-        String[] vector = new String[n];
-
-        for (int i = 0; i < vector.length; i++) {
-            System.out.print("Elemento " + (i) + ":  "); 
-            vector[i] = lect.nextLine();
-        }
+        Utilidades.introducirValoresString(vector);
 
         System.out.println("Valores en posiciones pares: ");
         for (int i = 0; i < vector.length; i+=2) {
@@ -25,6 +18,6 @@ public class Alfanumericos {
         for (int i = 1; i < vector.length; i+=2) {
             System.out.print("[ " + vector[i] + " ]");
         }
-        lect.close();
+    
     }
 }

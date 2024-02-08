@@ -2,15 +2,16 @@ package segundaev.vectores.recorridovectores.ejercicio7;
 
 import java.util.Scanner;
 
+import segundaev.vectores.utilidades.Utilidades;
+
 public class factorF {
     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Introduce el tamaño del vector: ");
-        int n = lect.nextInt();
+ 
 
-        int[] vector = new int[n];
+        int[] vector = new int[Utilidades.tamañoVectorInt()];
      
-        introducirValoresVector(vector);
+       Utilidades.introducirValoresInt(vector);
 
         System.out.println("Introduce el factor F multiplicador del vector: ");
         int factor = lect.nextInt();
@@ -18,12 +19,6 @@ public class factorF {
         factorMultiplicado(vector,factor);
 
         lect.close();
-    }
-    public static void introducirValoresVector(int[] vector){
-        for (int i = 0; i < vector.length; i++) {
-            System.out.print("Elemento " + (i) + ":  "); 
-            vector[i] = lect.nextInt();
-        }
     }
 
     public static void factorMultiplicado(int[] vector,int factor){

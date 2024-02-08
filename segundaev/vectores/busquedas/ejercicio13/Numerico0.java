@@ -3,25 +3,17 @@ package segundaev.vectores.busquedas.ejercicio13;
 
 import java.util.Scanner;
 
+import segundaev.vectores.utilidades.Utilidades;
+
 public class Numerico0 {
     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Introduce un tamaño de array: ");
-        int tamaño = lect.nextInt();
-        lect.nextLine(); //Vaciar buffer
 
-        int[] vector = new int[tamaño];
+        int[] vector = new int[Utilidades.tamañoVectorInt()];
 
-        introducirValoresVector(vector);
+        Utilidades.introducirValoresInt(vector);
         encontrarPrimerNumero(vector);
 
-    }
-    
-    public static void introducirValoresVector(int[] vector){
-        for (int i = 0; i < vector.length; i++) {
-            System.out.print("Elemento " + (i) + ":  "); 
-            vector[i] = lect.nextInt();
-        }
     }
 
     public static void encontrarPrimerNumero(int[] vector){

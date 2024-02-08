@@ -18,7 +18,6 @@ public class vectorPotencia {
             System.out.println(base + " ^ " + i + " = " + potencias[i]);
         }
         
-    
         lect.close();
     }
 

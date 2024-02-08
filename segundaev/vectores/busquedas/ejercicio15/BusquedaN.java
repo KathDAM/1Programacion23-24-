@@ -3,35 +3,18 @@ package segundaev.vectores.busquedas.ejercicio15;
 
 import java.util.Scanner;
 
+import segundaev.vectores.utilidades.Utilidades;
+
 public class BusquedaN {
     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Introduce un tamaño de array: ");
-        int tamaño = lect.nextInt();
 
-        int[] vector = new int[tamaño];
+        int[] vector = new int[Utilidades.tamañoVectorInt()];
 
-        introducirValoresVector(vector);
+        Utilidades.introducirValoresInt(vector);
 
-        System.out.println("Introduce el numero que quieres bucar: ");
-        int numero = lect.nextInt();
-        encontrarPrimerM(vector,numero);
+        Utilidades.encontrarIntVector(vector,Utilidades.busquedaNumeroInt());
     }
 
-    public static void introducirValoresVector(int[] vector){
-        for (int i = 0; i < vector.length; i++) {
-            System.out.print("Elemento " + (i) + ":  "); 
-            vector[i] = lect.nextInt();
-        }
-    }
 
-    public static void encontrarPrimerM(int[] vector, int num){
-        for (int i = 0; i < vector.length; i++) {
-            if (vector[i] == num) {
-                System.out.println("El numero "+ num + " esta en la posicion " + i);
-                return;
-            }
-        }
-        System.out.println("No hay ningún " + num + " en el vector");    
-    }
 }
