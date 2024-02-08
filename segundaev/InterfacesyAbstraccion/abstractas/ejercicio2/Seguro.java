@@ -4,8 +4,6 @@ package segundaev.InterfacesyAbstraccion.abstractas.ejercicio2;
 public abstract class Seguro {
     // ATRIBUTOS
     protected Asegurado asegurado;
-    protected int primaBase = 100;
-
 
     // CONSTRUCTOR
     public Seguro(Asegurado asegurado) {
