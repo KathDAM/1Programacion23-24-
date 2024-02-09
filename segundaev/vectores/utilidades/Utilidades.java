@@ -21,6 +21,13 @@ public class Utilidades {
         }
     }
 
+    public static int introducirCota(){
+        System.out.println("Introduce la cota :");
+        int cota = Integer.parseInt(lect.nextLine());
+       
+        return cota;
+    }
+    
     public static int busquedaNumeroInt(){
         System.out.println("Introduce el numero que quieres bucar: ");
         int numero = lect.nextInt();
