@@ -9,24 +9,26 @@ public class MenoresMayores {
     public static void main(String[] args) {
         Scanner lect = new Scanner(System.in);
 
-       // int mayores = 0;
-        //int menores = 0;
+        int mayores = 0;
+        int menores = 0;
+        int tamaño = Utilidades.tamañoVectorInt();
 
-        int[] vector = new int[Utilidades.tamañoVectorInt()];
+        int[] vector = new int[tamaño];
         Utilidades.introducirValoresInt(vector);
 
-        Utilidades.introducirCota();
+        int cota = Utilidades.introducirCota();
 
-        long menores = Arrays.stream(vector)
-        .filter(num -> num < Utilidades.introducirCota())
-        .count();
-
-        long mayoresOIguales = Arrays.stream(vector)
-                        .filter(num -> num >= Utilidades.introducirCota())
-                        .count();
+        for (int i = 0; i < tamaño; i++) {
+            if (vector[i] < cota) {
+                menores++;
+            } else {
+                mayores++;
+            }
+        }
         
         System.out.println("Número de elementos menores que la cota " + cota + ": " + menores);
-        System.out.println("Número de elementos mayores o iguales que la cota " + cota + ": " + mayoresOIguales);
+        System.out.println("Número de elementos mayores o iguales que la cota " + cota + ": " + mayores);
     
+        lect.close();
     }
 }
