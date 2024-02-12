@@ -1,54 +1,34 @@
 package segundaev.arrays.ejercicio7;
 
-import java.util.Scanner;
+import java.util.Arrays;
+
+import segundaev.vectores.utilidades.Utilidades;
 
 public class OrdenarVec {
     public static void main(String[] args) {
-        Scanner lect = new Scanner(System.in);
+  
+        int tamaño = Utilidades.tamañoVectorInt();
 
-        // Pedir tamaño del vector
-        System.out.println("Introduce el tamaño del vector: ");
-        int tamaño = lect.nextInt();
-
-        // Crear vector
         int[] vector = new int[tamaño];
+        Utilidades.introducirValoresInt(vector);
 
-        // Pedir valores del vector
-        System.out.println("Introduce los valores del vector: ");
-        for (int i = 0; i < tamaño; i++) {
-            vector[i] = lect.nextInt();
+        int cota = Utilidades.introducirCota();
+
+        int[] vectorCopia = Arrays.copyOf(vector, tamaño);
+        Arrays.sort(vectorCopia);
+
+        int busqueda = Arrays.binarySearch(vectorCopia,cota);
+        if (busqueda < 0) {
+            busqueda = - busqueda -1;
         }
+    
+        int[] vectorResultado = new int[vectorCopia.length];
+        Arrays.fill(vectorResultado, 0, busqueda , -cota); // vector- array que leo, 0 - posicion desde donde leo y menores el final de lo que leo (menores = cota en este caso), y cota es lo que muestro al imprimir
+        Arrays.fill(vectorResultado, busqueda, vectorResultado.length, cota);
 
-        // Pedir cota
-        System.out.println("Introduce la cota: ");
-        int cota = lect.nextInt();
+        System.out.println("Vector original: " + Arrays.toString(vector));
+        System.out.println("Vector resultante: " + Arrays.toString(vectorResultado));
 
-        lect.close();
-
-        // Crear vector resultante V'
-        int[] vectorResultado = calcularVectorResultado(vector, cota);
-
-        // Mostrar vector resultante
-        System.out.println("Vector resultante V': " + Arrays.toString(vectorResultado));
-    }
-
-    // Función para calcular el vector resultante V'
-    private static int[] calcularVectorResultado(int[] vector, int cota) {
-        int posicionCota = encontrarPosicionCota(vector, cota);
-        int[] vectorResultado = new int[vector.length];
-        Arrays.fill(vectorResultado, 0, posicionCota + 1, -cota);
-        Arrays.fill(vectorResultado, posicionCota + 1, vector.length, cota);
-        return vectorResultado;
-    }
-
-    // Función para encontrar la posición de la cota en el vector ordenado
-    private static int encontrarPosicionCota(int[] vector, int cota) {
-        for (int i = 0; i < vector.length; i++) {
-            if (vector[i] >= cota) {
-                return i;
-            }
-        }
-        return vector.length - 1; // Si no se encuentra, retorna la última posición
     }
 }
 
