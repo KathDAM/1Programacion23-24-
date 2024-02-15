@@ -25,7 +25,7 @@ public class LotesM {
         System.out.println("Valores en M posiciones : ");
         for (int i = 0; i < vector.length; i++) {
             if (i % m == 0) {
-                System.out.println(" ");
+                System.out.println();
             }
             System.out.print("[ " + vector[i] + " ]");
         }

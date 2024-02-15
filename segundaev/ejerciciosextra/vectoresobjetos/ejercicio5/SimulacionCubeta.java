@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package segundaev.ejerciciosextra.complejosvectores.ejercicio1;
+package segundaev.ejerciciosextra.vectoresobjetos.ejercicio5;
 
 /**
  * Clase para simular el llenado de una cubeta de lluvia
