@@ -1,5 +1,6 @@
 package segundaev.ejerciciosextra.complejosvectores.ejercicio1;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class CubetaLluvia {
@@ -21,7 +22,7 @@ public class CubetaLluvia {
             lluviaDia[i] = generacionLluvia(); 
             lluviaAcumulada += lluviaDia[i]; 
             
-            System.out.println("Día=" + (dias + 1) + " Lluvia=" + lluviaDia + " Capacidad=" + capacidadCubeta + " Lluvia acumulada=" + lluviaAcumulada);
+            System.out.println("Día=" + (dias + 1) + " Lluvia=" + lluviaDia.length + " Capacidad=" + capacidadCubeta + " Lluvia acumulada=" + lluviaAcumulada);
 
             if (lluviaAcumulada >= capacidadCubeta) {
                 System.out.println("La cubeta se ha llenado en " + (i + 1) + " días.");
@@ -51,7 +52,8 @@ public class CubetaLluvia {
     }
 
     public static int generacionLluvia(){
-        return (int) Math.random() * 21;
+        Random random = new Random();
+        return random.nextInt(21);
     }
 
 }
