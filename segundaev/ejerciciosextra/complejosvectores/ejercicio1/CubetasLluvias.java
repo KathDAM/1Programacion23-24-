@@ -14,6 +14,8 @@ public class CubetasLluvias {
 
         imprimirResultadoCubeta(listaSimuladaDias,capacidadCubeta);
         imprimirResultadoCubetaRemanente(listaSimuladaDias,capacidadCubeta);
+
+        lect.close();
     }
 
     private static int[] simuladorCubeta(int capacidadCubeta) {
@@ -30,25 +32,26 @@ public class CubetasLluvias {
     }
 
     private static void imprimirResultadoCubeta(int[] cubeta, int capacidadCubeta) {
-        int dias = 0;
-        int []simulacionLluvia = new int[15]; 
-        for (int i = 0; i < dias; i++) {
-            capacidadCubeta -= simulacionLluvia[i];
-            System.out.println("Día=" + (i + 1) + " Lluvia=" + simulacionLluvia[i]+ " Capacidad=" + capacidadCubeta); 
+        for (int i = 0; i < cubeta.length; i++) {
+            if (capacidadCubeta > 0) {
+                capacidadCubeta -= cubeta[i];
+                System.out.println("Día=" + (i + 1) + " Lluvia=" + cubeta[i] + " Capacidad=" + capacidadCubeta); 
+            }else{
+                System.out.println("  * Fin de la simulación del llenado de la cubeta en " + cubeta.length + " días * ");
+            }
         }
 
-        System.out.println("  * Fin de la simulación del llenado de la cubeta en " + (dias) + " días * ");
+        System.out.println("  * Fin de la simulación del llenado de la cubeta en " + cubeta.length + " días * ");
         
     }
 
     private static void imprimirResultadoCubetaRemanente(int[] cubeta, int capacidadCubeta) {
         int lluviaAcumulada = 0;
-        int dias = 0;
-        int []simulacionLluvia = new int[15]; 
-        for (int i = 0; i < dias; i++) {
-            capacidadCubeta -= simulacionLluvia[i];
+        for (int i = 0; i < cubeta.length; i++) {
+            lluviaAcumulada += cubeta[i];
+            capacidadCubeta -= cubeta[i];
             System.out.println("Día=" + (i + 1) + " Lluvia Acumulado=" + lluviaAcumulada + " Capacidad Remanente=" + capacidadCubeta + " litros");
-            lluviaAcumulada = lluviaAcumulada + simulacionLluvia[i];
+        
         }
     }
 
