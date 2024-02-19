@@ -13,49 +13,39 @@ public class CubetaLluvia {
         System.out.println("Escriba la capacidad de la cubeta, en litros ");
         capacidadCubeta = lect.nextInt();
        
-        capacidadCubeta(capacidadCubeta);
-        
+        simularLlenadoCubeta();
+        mostrarResultado(); 
     }
 
-    private static void capacidadCubeta(int litros){
+    private static void simularLlenadoCubeta(){
         for (int i = 0; i < lluviaDia.length; i++) {
             lluviaDia[i] = generacionLluvia(); 
             lluviaAcumulada += lluviaDia[i]; 
             
-            System.out.println("Día=" + (dias + 1) + " Lluvia=" + lluviaDia.length + " Capacidad=" + capacidadCubeta + " Lluvia acumulada=" + lluviaAcumulada);
+            System.out.println("Día=" + (i + 1) + " Lluvia=" + lluviaDia[i]+ " Capacidad=" + capacidadCubeta);
 
             if (lluviaAcumulada >= capacidadCubeta) {
-                System.out.println("La cubeta se ha llenado en " + (i + 1) + " días.");
+                System.out.println("Fin de la simulación del llenado de la cubeta en " + (i + 1) + " días.");
                 break;
             }
+            capacidadCubeta = capacidadCubeta - lluviaDia[i];
         } 
         
         if (lluviaAcumulada < capacidadCubeta) {
-            System.out.println("La cubeta no se llenó en 15 días.");
+            System.out.println("Fin de la simulación del llenado de la cubeta, no se llenó en 15 días.");
         }
-       /* int capacidad = litros;
-        dias = 0; 
-
-        while (dias < 15 && capacidad > 0 ) {
-            int lluvia = generacionLluvia();
-            System.out.println("Día=" + (dias + 1) + " Lluvia=" + lluvia + " Capacidad=" + capacidad + " Lluvia acumulada=" + lluviaAcumulada);
-            
-            capacidad = lluvia - capacidad;
-
-            if (capacidad < 0) {
-                System.out.println("Fin de la simulación del llenado de la cubeta en " + dias + " días");
-            }
-            lluviaAcumulada[dias] = lluvia + lluviaAcumulada;
-            
-        }
-         */
     }
+
+    private static void mostrarResultado(){
+        System.out.println(" * Lluvia acumulada=" + lluviaAcumulada + " y Capacidad Remanente=" + capacidadCubeta);
+        //        System.out.println("Día=" + (dia + 1) + " Lluvia=" + lluviaDia[dia] + " Acumulado=" + lluviaAcumulada + " Capacidad Remanente=" + capacidadCubeta + " litros");
+    }
+
 
     public static int generacionLluvia(){
         Random random = new Random();
         return random.nextInt(21);
     }
-
 }
 
 

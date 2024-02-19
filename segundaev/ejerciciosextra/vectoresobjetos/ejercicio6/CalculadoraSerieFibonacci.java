@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package segundaev.ejerciciosextra.complejosvectores.ejercicio2;
+package segundaev.ejerciciosextra.vectoresobjetos.ejercicio6;
 
 import java.util.Arrays;
 
