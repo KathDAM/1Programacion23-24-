@@ -9,6 +9,7 @@ public class InicioVector {
         int[] B = {3, 4, 5};
 
         int posicionInicio = contieneVector(A, B);
+        
         if (posicionInicio != -1) {
             System.out.println("El vector A contiene al vector B. B comienza en la posición " + posicionInicio + " de A.");
         } else {
