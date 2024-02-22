@@ -3,17 +3,15 @@ package segundaev.ejerciciosextra.complejosvectores.ejercicio4;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import segundaev.ejerciciosextra.vectoresobjetos.ejercicio8.Ovalo;
-
 public class Figuras {
     static Scanner lect = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("¿Cuántas figuras desea tratar?");
         int numFiguras = lect.nextInt();
-        lect.nextLine(); // Limpiar el buffer de entrada
+        lect.nextLine();
 
-        Figura[] figuras = new Figura[numFiguras];
+        Figuras[] figuras = new Figuras[numFiguras];
 
         for (int i = 0; i < numFiguras; i++) {
             System.out.println("Ingrese el tipo de figura (circulo, ovalo, cuadrado, rectangulo) para la figura " + (i + 1) + ":");
@@ -67,4 +65,4 @@ public class Figuras {
     }
 }
 
-}
+

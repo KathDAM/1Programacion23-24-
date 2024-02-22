@@ -19,6 +19,9 @@ public class MediaNotas {
         double media = calcularMedia(notas);
         System.out.println("\nLa media de notas de la clase es: " + media);
 
+        double[] diferencias = diferenciaPuntuacionSobreMedia(notas, media);
+        imprimirDiferenciasMedia(diferencias);
+
     }
 
     private static void imprimirAlumnos(int[] notas) {
@@ -88,8 +91,18 @@ public class MediaNotas {
         }
     }
 
-    private int[] diferenciaPuntuacionSobreMedia(int[] notas) {
-        int 
+    private static double[] diferenciaPuntuacionSobreMedia(int[] notas, double media) {
+        double[] diferencias = new double[notas.length];
+        for (int i = 0; i < notas.length; i++) {
+            diferencias[i] = notas[i] - media;
+        } 
+        return diferencias;
     }
  
+    private static void imprimirDiferenciasMedia(double[] diferencias) {
+        System.out.println("Diferencias de puntuación sobre la media:");
+        for (int i = 0; i < diferencias.length; i++) {
+            System.out.println("Alumno " + (i + 1) + ": " + diferencias[i]);
+        }
+    }
 }
