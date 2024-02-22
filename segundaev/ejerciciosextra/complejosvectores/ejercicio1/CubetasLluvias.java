@@ -23,7 +23,7 @@ public class CubetasLluvias {
         int [] simulacionLluvia = new int[15]; 
         
         while (dias < 15 && lluviaAcumulada < capacidadCubeta) {
-            int lluviaDia = generacionLluvia();
+            int lluviaDia = generacionLluvia();            
             simulacionLluvia[dias] = lluviaDia;
             lluviaAcumulada += lluviaDia;
             dias++;

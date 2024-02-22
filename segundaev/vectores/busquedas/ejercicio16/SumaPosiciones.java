@@ -22,5 +22,5 @@ public class SumaPosiciones {
             }
         }
         System.out.println("La suma de todos los elementos no supera el valor de M.");
-      } 
+    } 
 }

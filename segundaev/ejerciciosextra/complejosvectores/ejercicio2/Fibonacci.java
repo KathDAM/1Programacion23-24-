@@ -10,6 +10,7 @@ public class Fibonacci {
 
         int[] vectorFibonacci = calcularFibonacci(cantidad);
 
+        System.out.println("Fibonacci de " + cantidad + " elementos:");
         imprimirFibonacci(cantidad, vectorFibonacci);
         
         lect.close();
@@ -31,9 +32,9 @@ public class Fibonacci {
     }
 
     private static void imprimirFibonacci(int cantidad, int[] vectorFibonacci){
-        System.out.println("Fibonacci de " + cantidad + " elementos:");
         for (int i = 0; i < cantidad; i++) {
             System.out.print(vectorFibonacci[i] + " ");
         }
     }
+
 }

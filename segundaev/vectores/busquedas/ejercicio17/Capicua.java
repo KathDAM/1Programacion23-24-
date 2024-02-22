@@ -20,7 +20,7 @@ public class Capicua {
     }
 
     public static boolean esCapicua(String frase) {
-        frase = frase.replaceAll("\\s+", "").toUpperCase();
+        frase = frase.replaceAll("\\s+", "").toLowerCase();
         char[] caracteres = frase.toCharArray();
         
         int inicio = 0;
