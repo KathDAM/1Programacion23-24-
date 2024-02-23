@@ -11,8 +11,8 @@ public class CubetasLluvias {
 
         int[] listaSimuladaDias = simuladorCubeta(capacidadCubeta);
 
-        int dias = imprimirResultadoCubeta(listaSimuladaDias,capacidadCubeta);
-        imprimirResultadoCubetaRemanente(listaSimuladaDias,capacidadCubeta,dias);
+        imprimirResultadoCubeta(listaSimuladaDias,capacidadCubeta);
+        imprimirResultadoCubetaRemanente(listaSimuladaDias,capacidadCubeta);
 
         lect.close(); 
     }
@@ -46,9 +46,9 @@ public class CubetasLluvias {
         return dias;
     }
 
-    private static void imprimirResultadoCubetaRemanente(int[] cubeta, int capacidadCubeta, int dias) {
+    private static void imprimirResultadoCubetaRemanente(int[] cubeta, int capacidadCubeta) {
         int lluviaAcumulada = 0;
-        for (int i = 0; i < dias; i++) {
+        for (int i = 0; i < cubeta.length; i++) {
             lluviaAcumulada += cubeta[i];
             capacidadCubeta -= cubeta[i];
             if (capacidadCubeta < 0) {
