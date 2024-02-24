@@ -1,9 +1,6 @@
 package segundaev.ejerciciosextra.complejosvectores.ejercicio4;
 
-import java.util.Arrays;
 import java.util.Scanner;
-
-import segundaev.vectores.recorridovectores.ejercicio11.vectorEquilibrado;
 
 public class Figuras {
     static Scanner lect = new Scanner(System.in);
@@ -54,36 +51,53 @@ public class Figuras {
                     double base = lect.nextDouble();
                     System.out.println("Ingrese la altura del rectángulo:");
                     double altura = lect.nextDouble();
-                    areas[i] = areaRectangulo(base,altura);
+                    areas[i] = areaRectangulo(base, altura);
                     perimetros[i] = perimetroRectangulo(base, altura);
                     break;
 
                 default:
                     System.out.println("Tipo de figura no válido. Inténtelo de nuevo.");
-                    i--; //Va una para atras 
+                    i--; // Vuelve a pedir datos
             }
-            lect.nextLine(); 
+            lect.nextLine();
         }
-        ordenarFiguras(figuras,areas);
-        ordenarFiguras(figuras,perimetros);
 
-  
-       
+        ordenarFiguras(figuras, areas);
+        System.out.println("\nFiguras ordenadas de menor a mayor según el area: ");
+        imprimirInfoFiguras(figuras, areas);
+
+        ordenarFiguras(figuras, perimetros);
+        System.out.println("\nFiguras ordenadas de menor a mayor según el perimetro: ");
+        imprimirInfoFiguras(figuras, perimetros);
+
     }
 
-    //METODOS GENERALES
-
+    // METODOS GENERALES
     public static void ordenarFiguras(String[] figuras, double[] medidas) {
-        int n = medidas.length;
-        Arrays.sort(figuras, (a, b) -> Double.compare(a.getArea(), b.getArea()));
+        for (int i = 0; i < medidas.length - 1; i++) {
+            int menorIndice = i;
+            for (int j = i + 1; j < medidas.length; j++) {
+                if (medidas[j] < medidas[menorIndice]) {
+                    menorIndice = j;
+                }
+            }
+            double intercambioMedidas = medidas[menorIndice];
+            medidas[menorIndice] = medidas[i];
+            medidas[i] = intercambioMedidas;
+
+            String valorFigura = figuras[menorIndice];
+            figuras[menorIndice] = figuras[i];
+            figuras[i] = valorFigura;
+        }
     }
 
-    public static void imprimirInfoFiguras() {
-        System.out.println("Las areas de las figuras ordenadas son: \n" );
-        System.out.println("Los perimetros de las figuras ordenadas son: \n" );
+    public static void imprimirInfoFiguras(String[] figuras, double[] medidas) {
+        for (int i = 0; i < medidas.length; i++) {
+            System.out.println(" * Figura " + (i + 1) + " - " + figuras[i] + " - " + medidas[i]);
+        }
     }
 
-    //CIRCULO
+    // CIRCULO
     private static double areaCirculo(double a) {
         return Math.PI * (a * a);
     }
@@ -92,16 +106,16 @@ public class Figuras {
         return 2 * Math.PI * a;
     }
 
-    //OVALO
-    private static double areaOvalo(double a,double b) {
-        return b * a * Math.PI ;
+    // OVALO
+    private static double areaOvalo(double a, double b) {
+        return b * a * Math.PI;
     }
 
-    private static double perimetroOvalo(double a,double b) {
+    private static double perimetroOvalo(double a, double b) {
         return 2 * Math.PI * Math.sqrt((a * a + b * b) / 2);
     }
 
-    //CUADRADO
+    // CUADRADO
     private static double areaCuadrado(double b) {
         return b * b;
     }
@@ -110,14 +124,12 @@ public class Figuras {
         return 4 * b;
     }
 
-    //RECTANGULO
+    // RECTANGULO
     private static double areaRectangulo(double b, double a) {
         return b * a;
     }
 
     private static double perimetroRectangulo(double b, double a) {
-        return 2 *(b + a);
+        return 2 * (b + a);
     }
 }
-
-
