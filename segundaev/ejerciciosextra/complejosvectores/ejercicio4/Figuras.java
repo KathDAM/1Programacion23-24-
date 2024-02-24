@@ -56,7 +56,7 @@ public class Figuras {
                     break;
 
                 default:
-                    System.out.println("Tipo de figura no válido. Inténtelo de nuevo.");
+                    System.out.println("Tipo de figura no válido. Inténtalo de nuevo.");
                     i--; // Vuelve a pedir datos
             }
             lect.nextLine();

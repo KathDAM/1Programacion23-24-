@@ -61,7 +61,11 @@ public class NotasAsignatura {
      * @return La media
      */
     public float calcularMedia(){
-        //TODO implementar aquí
+        int suma = 0;
+        for (int i = 0; i < alumnosRegistrados; i++) {
+            suma += notasAlumnos[i];
+        }
+        return (float) suma / alumnosRegistrados;
     }
     
     /**
@@ -69,20 +73,47 @@ public class NotasAsignatura {
      * @return 
      */
     public TotalCalificacionVO[] calcularTotalNotas(){
+        int[] cantidadCalificaciones = new int[Calificacion.values().length];
+        for (int i = 0; i < notasAlumnos.length; i++) {
+            int nota = notasAlumnos[i];
+            if (nota >= 1 && nota <= 2) {
+                cantidadCalificaciones[Calificacion.MUY_DEFICIENTE.ordinal()]++; // ordinal() devuelve el índice numérico en ENUM
+            } else if (nota >= 3 && nota <= 4) {
+                cantidadCalificaciones[Calificacion.INSUFICIENTE.ordinal()]++;
+            } else if (nota == 5) {
+                cantidadCalificaciones[Calificacion.SUFICIENTE.ordinal()]++;
+            } else if (nota == 6) {
+                cantidadCalificaciones[Calificacion.BIEN.ordinal()]++;
+            } else if (nota >= 7 && nota <= 8) {
+                cantidadCalificaciones[Calificacion.NOTABLE.ordinal()]++;
+            } else if (nota == 9) {
+                cantidadCalificaciones[Calificacion.EXCELENTE.ordinal()]++;
+            } else if (nota == 10) {
+                cantidadCalificaciones[Calificacion.MATRICULA_HONOR.ordinal()]++;
+            }
+        }
         
-        //TODO implementar aquí
-        
+        TotalCalificacionVO[] total = new TotalCalificacionVO[Calificacion.values().length];
+        for (int i = 0; i < total.length; i++) {
+            total[i] = new TotalCalificacionVO(Calificacion.values()[i], cantidadCalificaciones[i]);
+        }
+        return total;
     }
-    
+
     /**
      * Calcula la diferencia de puntuación de cada alumno registrado con respecto a la media
      * @return Un vector con la diferencia de la nota de cada alumno con respecto a la media
      */
     public float[] calcularDiferenciaCalificacionConMedia(){
+        float media = calcularMedia();
+        float[] diferencias = new float[alumnosRegistrados];
         
-        //TODO implementar aquí
+        for (int i = 0; i < alumnosRegistrados; i++) {
+            diferencias[i] = notasAlumnos[i] - media;
+        }
+        return diferencias;
     }
-    
+
     /**
      * Devuelve las notas de cada alumno
      * @return 
