@@ -26,12 +26,12 @@ public class TestAppAsignatura {
         }
 
         float media = asignatura.calcularMedia();
-        System.out.println("\nLa media de las notas es: " + media);
+        System.out.printf("\nLa media de las notas es: %.2f\n",media); //%.2f\n  me da dos decimales
 
         float[] diferenciaMedias = asignatura.calcularDiferenciaCalificacionConMedia();
         System.out.println("\nDiferencia de calificación con respecto a la media:");
         for (int i = 0; i < diferenciaMedias.length; i++) {
-            System.out.println("Alumno " + (i + 1) + ": " + diferenciaMedias[i]);
+            System.out.printf("Alumno %d: %.2f\n", (i + 1), diferenciaMedias[i]);
         }
 
         lect.close();

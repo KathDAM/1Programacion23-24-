@@ -8,7 +8,6 @@ public class factorF {
     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
  
-
         int[] vector = new int[Utilidades.tamañoVectorInt()];
      
        Utilidades.introducirValoresInt(vector);

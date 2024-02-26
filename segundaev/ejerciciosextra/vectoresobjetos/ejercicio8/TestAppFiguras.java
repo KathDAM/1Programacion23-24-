@@ -17,6 +17,7 @@ public class TestAppFiguras {
         Figura[] figuras = new Figura[numFiguras];
         
         for (int i = 0; i < numFiguras; i++) {
+            //Se puede modularizar una más, creando un crearFigura
             System.out.println("Escribe el tipo de figura (circulo, ovalo, cuadrado, rectangulo) para la figura " + (i + 1) + ":");
             String tipoFigura = lect.nextLine().toUpperCase();
 
@@ -54,7 +55,7 @@ public class TestAppFiguras {
                     i--; 
                     break;
             }
-        } 
+        } //hasta aqui
         return figuras;
     }
 
