@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.InterfacesyAbstraccion.interfaces.ejercicio3;
+package ejercicio2;
 
 public class Coche extends Vehiculo {
     // ATRIBUTOS
@@ -20,7 +20,6 @@ public class Coche extends Vehiculo {
     public void avanzar(float km) {
         if (km > 0) {
             kmRecorridos += km;
-            System.out.println("El coche ha avanzado " + km + " kilómetros.");
         } else {
             throw new RuntimeException("La distancia a avanzar debe ser mayor que cero.");
         }

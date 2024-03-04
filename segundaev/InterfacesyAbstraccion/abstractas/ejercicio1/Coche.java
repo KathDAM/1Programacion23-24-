@@ -21,7 +21,7 @@ public class Coche extends Vehiculo {
         if (km > 0) {
             kmRecorridos += km;
         } else {
-            System.out.println("La distancia a avanzar debe ser mayor que cero.");
+            throw new RuntimeException("La distancia a avanzar debe ser mayor que cero.");
         }
     }
 

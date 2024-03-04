@@ -1,5 +1,5 @@
 // Catherine AM
-package segundaev.herencia2.ejer2;
+package ejercicio4;
 
 import java.util.Calendar;
 
