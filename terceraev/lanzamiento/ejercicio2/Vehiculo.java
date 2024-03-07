@@ -6,12 +6,20 @@ public abstract class Vehiculo {
     protected String marca;
     protected String modelo;
     protected int anyoFabricacion;
-
+    
+    /*CAMBIOS EN CONSTRUCTOR(try catch) */
     // CONSTRUCTOR
     public Vehiculo (String marca,String modelo,int anyoFabricacion){
-        this.marca = marca;
-        this.modelo = modelo;
-        this.anyoFabricacion = anyoFabricacion;
+        try {
+            if (marca == null || modelo == null || anyoFabricacion <= 0) {
+                throw new IllegalArgumentException("Los valores no pueden ser nulos o valores negativos.");
+            }
+            this.marca = marca;
+            this.modelo = modelo;
+            this.anyoFabricacion = anyoFabricacion;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error al crear el vehículo: " + e.getMessage());
+        }
     }
 
     // GET

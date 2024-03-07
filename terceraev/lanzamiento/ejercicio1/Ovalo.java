@@ -17,13 +17,12 @@ public class Ovalo extends Figura{
     public Ovalo(Color color, double semiejeMenor, double semiejeMayor) {
         super(color);
         this.nombreFigura = "Ovalo";
-        if(semiejeMenor>0 && semiejeMayor>0){
+        if (semiejeMenor > 0 && semiejeMayor > 0) {
             this.semiejeMenor = semiejeMenor;
             this.semiejeMayor = semiejeMayor;
-        }
-        else
+        } else {
             throw new RuntimeException("Los radios de un óvalo han de ser positivos");
-        
+        }
     }
 
     public double getSemiejeMenor() {

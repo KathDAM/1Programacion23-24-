@@ -12,6 +12,7 @@ public class Profesores {
     private String cargo;
     private int salarioBase = 1500;
 
+    /*CAMBIOS EN CONSTRUCTOR(try catch) */
     // CONSTRUCTOR
     public Profesores(String nombre,String apellido1,Calendar fecha) {
         if (nombre == null || nombre.isEmpty()) {
