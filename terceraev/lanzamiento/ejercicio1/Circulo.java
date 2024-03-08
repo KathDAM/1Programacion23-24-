@@ -23,7 +23,7 @@ public class Circulo extends Figura {
         if (radio > 0) {
             this.radio = radio;
         } else {
-            throw new RuntimeException("El radio de un círculo ha de ser positivo");
+            throw new RuntimeException("El radio de un círculo ha de ser positivo o mayor a 0");
         }
     }
 

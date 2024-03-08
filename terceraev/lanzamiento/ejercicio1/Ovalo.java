@@ -21,7 +21,7 @@ public class Ovalo extends Figura{
             this.semiejeMenor = semiejeMenor;
             this.semiejeMayor = semiejeMayor;
         } else {
-            throw new RuntimeException("Los radios de un óvalo han de ser positivos");
+            throw new RuntimeException("Los radios de un óvalo han de ser positivos o mayor a 0");
         }
     }
 

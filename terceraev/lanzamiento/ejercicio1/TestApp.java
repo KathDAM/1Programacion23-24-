@@ -44,7 +44,7 @@ public class TestApp {
         Color c = Color.fromString(scn.nextLine());
 
         Figura figuraUsuario = null, figuraSistema = null;
-        try {
+        try { 
             if ("c".equalsIgnoreCase(eleccion)) {
                 do {
                     try {
@@ -113,8 +113,7 @@ public class TestApp {
 
     private static void eleccionValida(String eleccion) throws Exception {
         // válidas: (C)irculo, (R)ectangulo, Cua(d)rado, (O)valo
-        if (!("c".equalsIgnoreCase(eleccion) || "r".equalsIgnoreCase(eleccion) || "d".equalsIgnoreCase(eleccion)
-                || "o".equalsIgnoreCase(eleccion))) {
+        if (!("c".equalsIgnoreCase(eleccion) || "r".equalsIgnoreCase(eleccion) || "d".equalsIgnoreCase(eleccion) || "o".equalsIgnoreCase(eleccion))) {
             throw new Exception("Eleccion inválida (tiene que ser 'c','r','d' o 'o'):");
         }
 

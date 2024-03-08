@@ -20,11 +20,11 @@ public class Rectangulo extends Figura{
         if(base>0)
             this.base = base;
         else
-            throw new RuntimeException("La base de un rectángulo ha de ser positiva");
+            throw new RuntimeException("La base de un rectángulo ha de ser positiva o mayor a 0");
         if(altura>0)
             this.altura = altura;
         else
-            throw new RuntimeException("La altura de un rectángulo ha de ser positiva");
+            throw new RuntimeException("La altura de un rectángulo ha de ser positiva o mayor a 0");
     }
 
     public double getBase() {

@@ -23,7 +23,7 @@ public class Cuadrado extends Figura {
         if (lado > 0) {
             this.lado = lado;
         } else {
-            throw new RuntimeException("El lado de un cuadrado ha de ser positivo");
+            throw new RuntimeException("El lado de un cuadrado ha de ser positivo o mayor a 0");
         }
     }
 
