@@ -2,8 +2,6 @@ package terceraev.excepciones.utilidades;
 
 import java.util.Scanner;
 
-import terceraev.excepciones.ejercicio2b.Punto;
-
 public class Utilidades {
     static Scanner lect = new Scanner(System.in);
   
@@ -32,13 +30,6 @@ public class Utilidades {
             }
         }
         System.out.println("]");
-    }
-
-    //PUNTOS
-
-    public static Punto introducirPunto() {
-        int punto = Integer.parseInt(lect.nextLine());
-        return punto;
     }
 
 }

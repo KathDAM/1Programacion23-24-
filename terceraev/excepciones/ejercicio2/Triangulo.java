@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package terceraev.excepciones.ejercicio2b;
+package terceraev.excepciones.ejercicio2;
 
 /**
  * Escribe la clase Triangulo que se represente con tres puntos dibujados en el eje de coordenadas cartesianas. 

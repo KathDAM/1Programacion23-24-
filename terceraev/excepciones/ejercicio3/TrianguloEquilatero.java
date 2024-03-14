@@ -1,4 +1,4 @@
-package terceraev.excepciones.ejercicio2;
+package terceraev.excepciones.ejercicio3;
 
 /**
  * Recupera la clase triángulo del ejercicio 2. 
@@ -19,14 +19,14 @@ public class TrianguloEquilatero extends Triangulo{
      * @param punto1 Punto uno
      * @param punto2 Punto dos
      * @param punto3 Punto tres
-     * @throws Exception 
+     * @throws NoFormaTrianguloEquilateroException 
      */
-    public TrianguloEquilatero(Punto punto1, Punto punto2, Punto punto3) throws Exception{
+    public TrianguloEquilatero(Punto punto1, Punto punto2, Punto punto3) throws NoFormaTrianguloEquilateroException{
         super(punto1, punto2, punto3);
        
         //a. En el constructor, si los puntos suministrados no forman un triángulo equilátero, debes dar un error. 
         if (!formanTrianguloEquilatero(punto1, punto2, punto3)){
-            throw new Exception("No es un triángulo equilátero");
+            throw new NoFormaTrianguloEquilateroException("No es un triángulo equilátero");
         }
         
     }
@@ -44,7 +44,7 @@ public class TrianguloEquilatero extends Triangulo{
      * @param punto2 Punto dos
      * @throws Exception 
      */
-    public TrianguloEquilatero(Punto punto1, Punto punto2) throws Exception{
+    public TrianguloEquilatero(Punto punto1, Punto punto2) throws NoFormaTrianguloEquilateroException{
         this(punto1, punto2, obtenerTercerPunto(punto1, punto2));
         
         

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package terceraev.excepciones.ejercicio2b;
+package terceraev.excepciones.ejercicio3;
 
 /**
  * Escribe una clase Punto que represente un punto en coordenadas cartesianas x e y, y que contenga  
