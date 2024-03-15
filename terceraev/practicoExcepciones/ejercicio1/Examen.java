@@ -4,6 +4,9 @@
  */
 package ejercicio1;
 
+import excepciones.MiExcepcion;
+import excepciones.MiRuntimeException;
+
 /**
  * Implementa una clase, de nombre Examen, para guardar información sobre los exámenes de un centro educativo. 
  * La información que se guarda de un examen es: el nombre de la asignatura, el aula, la fecha y la hora. 

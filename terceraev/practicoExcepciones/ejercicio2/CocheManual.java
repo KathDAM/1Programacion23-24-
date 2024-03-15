@@ -4,6 +4,8 @@
  */
 package ejercicio2;
 
+import excepciones.MiExcepcion;
+import excepciones.MiRuntimeException;
 /**
  * Un coche de cambio manual hace pública la funcionalidad de cambio de marcha, 
  * para que el programa invocante pueda manipular las marchas a su antojo. 
@@ -27,28 +29,27 @@ public class CocheManual extends Coche{
 
     @Override
     public boolean cambiarMarcha(MarchaCoche marcha) {
-        if(marchaValidaParaVelocidad(marcha, this.velocidad))
-            return super.cambiarMarcha(marcha);
-        else
-            return false;
+        if (!marchaValidaParaVelocidad(marcha, this.velocidad)) {
+            throw new MiRuntimeException("Marcha no válida para la velocidad actual");
+        }
+        return super.cambiarMarcha(marcha);
     }
 
     @Override
     public boolean acelerar(double incrementoVelocidad) {
-        
-        if(marchaValidaParaVelocidad(this.marcha, this.velocidad+incrementoVelocidad))
-            return super.acelerar(incrementoVelocidad);
-        else
-            return false;
+        if(marchaValidaParaVelocidad(this.marcha, this.velocidad+incrementoVelocidad)){
+            throw new MiRuntimeException("No se puede acelerar a esa velocidad con la marcha actual");
+        }
+        return super.acelerar(incrementoVelocidad);
     }
     
     @Override
     public boolean frenar(double decrementoVelocidad) {
         
-        if(marchaValidaParaVelocidad(this.marcha, this.velocidad-decrementoVelocidad))
-            return super.frenar(decrementoVelocidad);
-        else
-            return false;
+        if(marchaValidaParaVelocidad(this.marcha, this.velocidad-decrementoVelocidad)){
+            throw new MiRuntimeException("No se puede frenar a esa velocidad con la marcha actual");
+        }
+        return super.frenar(decrementoVelocidad);
     }
     
 

@@ -4,6 +4,9 @@
  */
 package ejercicio1;
 
+import excepciones.MiExcepcion;
+import excepciones.MiRuntimeException;
+
 import java.util.Scanner;
 
 /**
@@ -21,19 +24,20 @@ public class TestApp {
         boolean datosCorrectos = false;
 
         while (!datosCorrectos) {
+           
+            System.out.print("De qué asignatura es el examen? ");
+            String asignatura = scn.next();
+            System.out.print("En qué aula se realizará el examen? ");
+            int aulaExamen = scn.nextInt();
+            System.out.println("Escriba el día, mes y año como valores numéricos");
+            int diaExamen = scn.nextInt();
+            int mesExamen = scn.nextInt();
+            int anyoExamen = scn.nextInt();
+            System.out.println("Finalmente, la hora y los minutos de inicio");
+            int horaExamen = scn.nextInt();
+            int minutosExamen = scn.nextInt();
+        /* AÑADIMOS UN TRY CATCH EN EL MAIN Y UN WHILE */ 
             try {
-                System.out.print("De qué asignatura es el examen? ");
-                String asignatura = scn.next();
-                System.out.print("En qué aula se realizará el examen? ");
-                int aulaExamen = scn.nextInt();
-                System.out.println("Escriba el día, mes y año como valores numéricos");
-                int diaExamen = scn.nextInt();
-                int mesExamen = scn.nextInt();
-                int anyoExamen = scn.nextInt();
-                System.out.println("Finalmente, la hora y los minutos de inicio");
-                int horaExamen = scn.nextInt();
-                int minutosExamen = scn.nextInt();
-
                 Fecha fExamen = new Fecha(diaExamen, mesExamen, anyoExamen);
                 Hora hExamen = new Hora(horaExamen, minutosExamen);
                 
@@ -45,7 +49,7 @@ public class TestApp {
                 System.out.println("*****************************");
 
                 datosCorrectos = true; // Si llegamos aquí sin lanzar excepciones, establecemos datosCorrectos a true
-            } catch (MiExcepcion e) {
+            } catch (MiRuntimeException e) {
                 System.out.println("Error: " + e.getMessage());
                 System.out.println("Por favor, inténtalo de nuevo.");
                 scn.nextLine(); // Limpiamos el buffer del teclado
