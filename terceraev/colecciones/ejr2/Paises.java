@@ -1,13 +1,12 @@
-package terceraev.colecciones.ejr1;
+package terceraev.colecciones.ejr2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Paises {
     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
-        List<String> paises = new ArrayList<>();
+        LinkedList<String> paises = new LinkedList<>();
         int opcion;
 
         do {
@@ -59,14 +58,14 @@ public class Paises {
         System.out.print("Seleciona una opcion del menu: ");
     }
 
-    public static void anyadirPais(List<String> paises) {
+    public static void anyadirPais(LinkedList<String> paises) {
         System.out.print("Introduce el nombre del país: ");
         String pais = lect.nextLine();
         paises.add(pais);
         System.out.println("País añadido correctamente.");
     }
 
-    public static void consultarPaisPorPosicion(List<String> paises) {
+    public static void consultarPaisPorPosicion(LinkedList<String> paises) {
         if (paises.isEmpty()) {
             System.out.println("La lista de países está vacía.");
             return;
@@ -82,7 +81,7 @@ public class Paises {
         }
     }
 
-    public static void eliminarPaisPorPosicion(List<String> paises) {
+    public static void eliminarPaisPorPosicion(LinkedList<String> paises) {
         if (paises.isEmpty()) {
             System.out.println("La lista de países está vacía.");
             return;
@@ -99,7 +98,7 @@ public class Paises {
     }
 
 
-    public static void eliminarPaisPorValor(List<String> paises) {
+    public static void eliminarPaisPorValor(LinkedList<String> paises) {
         if (paises.isEmpty()) {
             System.out.println("La lista de países está vacía.");
             return;
@@ -115,7 +114,7 @@ public class Paises {
             System.out.println("El país '" + pais + "' no se encuentra en la lista.");
         }  }
 
-    public static void consultarPaisPorValor(List<String> paises) {
+    public static void consultarPaisPorValor(LinkedList<String> paises) {
         if (paises.isEmpty()) {
             System.out.println("La lista de países está vacía.");
             return;
@@ -130,7 +129,7 @@ public class Paises {
             System.out.println(" * El país '" + pais + "' no se encuentra en la lista.");
         }   }
 
-    public static void imprimirListado(List<String> paises) {
+    public static void imprimirListado(LinkedList<String> paises) {
         if (paises.isEmpty()) {
             System.out.println("La lista de países está vacía.");
             return;
