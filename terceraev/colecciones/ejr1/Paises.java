@@ -1,6 +1,7 @@
 package terceraev.colecciones.ejr1;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Paises {
                 case 1:
                     anyadirPais(paises);
                     break;
-                    case 2:
+                case 2:
                     consultarPaisPorPosicion(paises);
                     break;
                 case 3:
@@ -37,12 +38,11 @@ public class Paises {
                     System.out.println("Saliendo del menú...");
                     break;
                 default:
-                    System.out.println("Ópcion inválida. Elige una opción del 1 al 5");
+                    System.out.println("Ópcion inválida. Elige una opción del 1 al 7");
                     break;
             }
             
         } while (opcion != 7);
-
 
         lect.close();
     }

@@ -7,6 +7,8 @@ package ejercicio2;
 
 import java.util.Scanner;
 
+import excepciones.MiExcepcion;
+
 /**
  * Escribe un programa que utilice dos coches, uno de cambio automático y otro manual e imprima un menú con las siguientes opciones: 
  * <ul>
@@ -50,7 +52,13 @@ public class TestApp {
             
             imprimirMenuPantalla();
             opcionMenuSeleccionada= teclado.nextLine();
-            ejecutarOpcionMenu(opcionMenuSeleccionada);
+            
+        /* AÑADIMOS UN TRY CATCH EN EL MAIN */
+            try {
+                ejecutarOpcionMenu(opcionMenuSeleccionada);
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
         }
         
         System.out.println("bye!");
@@ -76,8 +84,9 @@ public class TestApp {
     /**
      * Ejecuta una opción de menú en base al menú impreso en la aplicación
      * @param opcion opción de menú seleccionada
+     * @throws MiExcepcion 
      */
-    private static void ejecutarOpcionMenu(String opcion){
+    private static void ejecutarOpcionMenu(String opcion) throws MiExcepcion{
         
         
         if ("a".equalsIgnoreCase(opcion)){
@@ -135,7 +144,7 @@ public class TestApp {
             System.out.println("El coche elegido no esta instanciado");
     }
 
-    private static void ejecutarOpcionCambioDeMarcha() throws NumberFormatException {
+    private static void ejecutarOpcionCambioDeMarcha() {
                 
         //1º solicitamos que elija un coche y manejamos en la variable Coche elegida
         Coche coche = solicitarSeleccionarCocheYDevolverlo();
@@ -159,7 +168,7 @@ public class TestApp {
             System.out.println("El coche elegido no esta instanciado o coche automático no permitido para el cambio de marcha");
     }
 
-    private static void ejecutarOpcionFrenar() {
+    private static void ejecutarOpcionFrenar() throws MiExcepcion {
         
         
         //1º solicitamos que elija un coche y manejamos en la variable Coche elegida

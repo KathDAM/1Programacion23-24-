@@ -36,7 +36,7 @@ public class Paises {
                     System.out.println("Saliendo del menú...");
                     break;
                 default:
-                    System.out.println("Ópcion inválida. Elige una opción del 1 al 5");
+                    System.out.println("Ópcion inválida. Elige una opción del 1 al 7");
                     break;
             }
             

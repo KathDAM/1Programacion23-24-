@@ -17,6 +17,7 @@ public class Circulo extends Figura {
         return radio;
     }
 
+    /* A. EXCEPCION RUNTIMEEXCEPTION  */
     public Circulo(Color color, double radio) {
         super(color);
         this.nombreFigura = "Círculo";

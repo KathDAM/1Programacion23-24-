@@ -14,6 +14,7 @@ public class Rectangulo extends Figura{
     private double base;
     private double altura;
 
+ /* A. EXCEPCION RUNTIMEEXCEPTION  */
     public Rectangulo(Color color, double base, double altura) {
         super(color);
         this.nombreFigura = "Rectangulo";

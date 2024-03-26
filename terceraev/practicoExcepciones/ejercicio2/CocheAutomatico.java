@@ -4,6 +4,8 @@
  */
 package ejercicio2;
 
+import excepciones.MiExcepcion;
+
 /**
  * Un coche de cambio automático cambia automáticamente de marcha en función de la velocidad, 
  * siguiendo una tabla de relación entre marcha y velocidad: 
@@ -60,7 +62,7 @@ public class CocheAutomatico extends Coche{
      * @return lo que devuelva el método heredado
      */
     @Override
-    public boolean frenar(double decrementoVelocidad) {
+    public boolean frenar(double decrementoVelocidad) throws MiExcepcion{
         
         //valor de retorno y cambia la velocidad del coche
         boolean puedeFrenar = super.frenar(decrementoVelocidad);

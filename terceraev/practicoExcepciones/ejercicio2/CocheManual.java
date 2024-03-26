@@ -44,7 +44,7 @@ public class CocheManual extends Coche{
     }
     
     @Override
-    public boolean frenar(double decrementoVelocidad) {
+    public boolean frenar(double decrementoVelocidad) throws MiExcepcion {
         
         if(marchaValidaParaVelocidad(this.marcha, this.velocidad-decrementoVelocidad)){
             throw new MiRuntimeException("No se puede frenar a esa velocidad con la marcha actual");

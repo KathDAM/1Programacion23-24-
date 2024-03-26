@@ -3,6 +3,8 @@ package ejercicio3;
 
 import java.util.Calendar;
 
+import excepciones.MiRuntimeException;
+
 public class Profesores {
     // ATRIBUTOS
     private String nombre;
@@ -12,14 +14,14 @@ public class Profesores {
     private String cargo;
     private int salarioBase = 1500;
 
-    /*CAMBIOS EN CONSTRUCTOR(try catch) */
+    /*B. NUEVA CLASE QUE HEREDE DE RUNTIMEEXCEPTION */
     // CONSTRUCTOR
     public Profesores(String nombre,String apellido1,Calendar fecha) {
         if (nombre == null || nombre.isEmpty()) {
-            throw new RuntimeException("El nombre no puede ser nulo o estar vacío.");
+            throw new MiRuntimeException("El nombre no puede ser nulo o estar vacío.");
         }
         if (apellido1 == null || apellido1.isEmpty()) {
-            throw new RuntimeException("El primer apellido no puede ser nulo o estar vacío.");
+            throw new MiRuntimeException("El primer apellido no puede ser nulo o estar vacío.");
         }
         this.nombre =  nombre;
         this.apellido1 = apellido1;

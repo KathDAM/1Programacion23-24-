@@ -23,6 +23,7 @@ public abstract class Figura {
      * Construye una figura indicando su color
      * @param color el color
      */
+     /* A. EXCEPCION RUNTIMEEXCEPTION  */
     public Figura(Color color){
         if(color==null)
             throw new RuntimeException("El color es obligatorio");

@@ -3,13 +3,11 @@ package terceraev.colecciones.ejr3;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class Paises {
     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
-        Map<String,Paises> listaPais = new HashMap<>();
-        
+        Map<String,Integer> poblacionPais = new HashMap<>();
         int opcion;
 
         do {
@@ -18,16 +16,16 @@ public class Paises {
 
             switch (opcion) {
                 case 1:
-                    anyadirPais(listaPais);
+                    anyadirPais(poblacionPais);
                     break;
                 case 2:
-                    consultarPais(listaPais);
+                    consultarPoblacion(poblacionPais);
                     break;
                 case 3:
-                    eliminarPais(listaPais);
+                    eliminarPais(poblacionPais);
                     break;
                 case 4:
-                    imprimirListado(listaPais);
+                    imprimirListado(poblacionPais);
                     break;
                 case 5:
                     System.out.println("Saliendo del menú...");
@@ -39,110 +37,78 @@ public class Paises {
             
         } while (opcion != 5);
 
-
         lect.close();
     }
 
     public static void mostrarMenu() {
         System.out.println("-------- MENU -------- \n" +
-                            "1. Añadir \n" +
-                            "2. Consultar por posición \n" +
-                            "3. Eliminar por posición \n" +
-                            "4. Consultar por valor \n" +
-                            "5. Eliminar por valor \n" +
-                            "6. Imprimir \n" +
-                            "7. Salir \n");
+                            "1. Añadir país y población \n" +
+                            "2. Consultar población país \n" +
+                            "3. Eliminar pais \n" +
+                            "4. Imprimir \n" +
+                            "5. Salir \n");
         System.out.print("Seleciona una opcion del menu: ");
     }
 
    
-    public static void anyadirPais(Map<String, Paises> paises) {
+    public static void anyadirPais(Map<String, Integer> poblacionPais) {
         System.out.print("Introduce el nombre del país: ");
         String nombrePais = lect.nextLine();
-        System.out.print("Introduce el código del país: ");
-        String codigoPais = lect.nextLine();
-        paises.put(codigoPais, nombrePais);
-        System.out.println("País añadido correctamente.");
-    }
 
-    public static void consultarPais(Map<String, Paises> paises) {
-        if (paises.isEmpty()) {
-            System.out.println("La lista de países está vacía.");
+        System.out.print("Introduce la población del país: ");
+        int poblacion = Integer.parseInt(lect.nextLine());
+
+        if (poblacion < 0) {
+            System.out.println("La población no puede ser negativa. Inténtalo de nuevo.");
             return;
         }
 
-        System.out.print("Introduce el código del país a consultar: ");
-        String codigoPais = lect.nextLine();
-
-        if (paises.containsKey(codigoPais)) {
-            System.out.println("El país con el código " + codigoPais + " es: " + paises.get(codigoPais));
-        } else {
-            System.out.println("El país con el código " + codigoPais + " no se encuentra en la lista.");
-        }
+        poblacionPais.put(nombrePais, poblacion);
+        System.out.println(" * País añadido correctamente.");
     }
 
-    public static void eliminarPais(Map<String, Paises> paises) {
-        if (paises.isEmpty()) {
-            System.out.println("La lista de países está vacía.");
-            return;
-        }
-
-        System.out.print("Introduce el código del país que quieres eliminar: ");
-        String codigoPaisEliminar = lect.nextLine();
-        if (paises.containsKey(codigoPaisEliminar)) {
-            Paises paisEliminado = paises.remove(codigoPaisEliminar);
-            System.out.println("Se ha eliminado el país '" + paisEliminado + "' correctamente.");
-        } else {
-            System.out.println("El país con el código " + codigoPaisEliminar + " no se encuentra en la lista.");
-        }
-    }
-
-    public static void consultarPaisPorValor(Map<String, Paises> paises) {
-        if (paises.isEmpty()) {
-            System.out.println("La lista de países está vacía.");
+    public static void consultarPoblacion(Map<String, Integer> poblacionPais) {
+        if (poblacionPais.isEmpty()) {
+            System.out.println("La lista de población está vacía.");
             return;
         }
 
         System.out.print("Introduce el nombre del país a consultar: ");
         String nombrePais = lect.nextLine();
 
-        if (paises.containsValue(nombrePais)) {
-            System.out.println("El país '" + nombrePais + "' se encuentra en la lista.");
+        if (poblacionPais.containsKey(nombrePais)) {
+            System.out.println(" * La población en el pais ' " + nombrePais + " ' es: " + poblacionPais.get(nombrePais));
         } else {
-            System.out.println("El país '" + nombrePais + "' no se encuentra en la lista.");
+            System.out.println("El país ' " + nombrePais + " ' no se encuentra en la lista.");
         }
     }
 
-    public static void eliminarPaisPorValor(Map<String, Paises> paises) {
-        if (paises.isEmpty()) {
-            System.out.println("La lista de países está vacía.");
+    public static void eliminarPais(Map<String, Integer> poblacionPais) {
+        if (poblacionPais.isEmpty()) {
+            System.out.println("La lista de población está vacía.");
             return;
         }
 
-        System.out.print("Introduce el nombre del país a eliminar: ");
-        String nombrePaisEliminar = lect.nextLine();
-
-        if (paises.containsValue(nombrePaisEliminar)) {
-            for (Entry<String, Paises> entry : paises.entrySet()) {
-                if (entry.getValue().equals(nombrePaisEliminar)) {
-                    paises.remove(entry.getKey());
-                    System.out.println("Se ha eliminado el país '" + nombrePaisEliminar + "' correctamente.");
-                    return;
-                }
-            }
+        System.out.print("Introduce el nombre del país que quieres eliminar: ");
+        String paisEliminar = lect.nextLine();
+        if (poblacionPais.containsKey(paisEliminar)) {
+            poblacionPais.remove(paisEliminar);
+            System.out.println(" * Se ha eliminado el país '" + paisEliminar + "' correctamente.");
         } else {
-            System.out.println("El país '" + nombrePaisEliminar + "' no se encuentra en la lista.");
+            System.out.println("El país ' " + paisEliminar + " ' no se encuentra en la lista.");
         }
     }
 
-    public static void imprimirListado(Map<String, Paises> paises) {
-        if (paises.isEmpty()) {
-            System.out.println("La lista de países está vacía.");
+    public static void imprimirListado(Map<String, Integer> poblacionPais) {
+        if (poblacionPais.isEmpty()) {
+            System.out.println("La lista de población está vacía.");
             return;
         }
-        System.out.println("Lista de países:");
-        for (Entry<String, Paises> entry : paises.entrySet()) {
-            System.out.println("  " + entry.getKey() + ". " + entry.getValue());
+        System.out.println("Listado de países y su población:");
+        for (int i = 0; i < poblacionPais.size(); i++) {
+            String pais = (String) poblacionPais.keySet().toArray()[i];
+            int poblacion = poblacionPais.get(pais);
+            System.out.println(" · " + pais + ", población : " + poblacion);
         }
     }
 

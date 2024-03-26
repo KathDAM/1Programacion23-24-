@@ -4,6 +4,9 @@
  */
 package ejercicio2;
 
+import excepciones.MiExcepcion;
+import excepciones.MiRuntimeException;
+
 /**
  * Un coche puede ser de cambio manual o automático. 
  * <p>
@@ -117,8 +120,12 @@ public class Coche {
      * @param incrementoVelocidad Velocidad a incrementar
      * @return Cierto, si puede incrementar la velocidad en el valor indicado, falso en caso contrario.
      */
+    /*B. NUEVA CLASE QUE HEREDE DE RUNTIMEEXCEPTION */
     public boolean acelerar(double incrementoVelocidad){
-        
+        if (incrementoVelocidad < 0) {
+            throw new MiRuntimeException("La velocidad a acelerar no puede ser negativa.");
+        }
+
         if (this.velocidad + incrementoVelocidad >= this.limiteMaximoVelocidad){
             this.velocidad = this.limiteMaximoVelocidad;
             return false;            
@@ -133,9 +140,15 @@ public class Coche {
      * se establece la velocidad en 0 y devuelve un valor falso.
      * @param decrementoVelocidad Velocidad a decrementar.
      * @return  Cierto, si puede disminuir la velocidad en el valor indicado, falso en caso contrario
+     * @throws MiExcepcion 
      */
-    public boolean frenar(double decrementoVelocidad){
-        
+
+    /* C. EXCEPCION NO RUNTIMEEXCEPTION NI HIJA */
+    public boolean frenar(double decrementoVelocidad) throws MiExcepcion{
+        if (decrementoVelocidad < 0) {
+            throw new MiExcepcion("La velocidad a frenar no puede ser negativa.");
+        }
+
         if (this.velocidad - decrementoVelocidad < 0){
             this.velocidad = 0;
             return false;            

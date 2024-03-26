@@ -16,7 +16,7 @@ public class Cuadrado extends Figura {
     public double getLado() {
         return lado;
     }
-
+ /* A. EXCEPCION RUNTIMEEXCEPTION  */
     public Cuadrado(Color color, double lado) {
         super(color);
         this.nombreFigura = "Cuadrado";

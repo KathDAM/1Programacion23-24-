@@ -13,7 +13,8 @@ public class Ovalo extends Figura{
  
     private double semiejeMenor;
     private double semiejeMayor;
-
+    
+ /* A. EXCEPCION RUNTIMEEXCEPTION  */
     public Ovalo(Color color, double semiejeMenor, double semiejeMayor) {
         super(color);
         this.nombreFigura = "Ovalo";
