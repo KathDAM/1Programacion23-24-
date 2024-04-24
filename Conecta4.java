@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 public class Conecta4 {
-    private static final int ROWS = 3;
+    private static final int ROWS = 4;
     private static final int COLUMNS = 4;
     private static final char EMPTY = '-';
     private static final char PLAYER1 = 'X';
