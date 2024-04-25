@@ -4,6 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class File {
+    public File(String string) {
+        //TODO Auto-generated constructor stub
+    }
+
     public static void main(String[] args) {
         
     String nombreFichero = "prueba.txt";
@@ -33,5 +37,10 @@ public class File {
     }
     
 
+    }
+
+    public void renameTo(File file) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'renameTo'");
     }
 }
