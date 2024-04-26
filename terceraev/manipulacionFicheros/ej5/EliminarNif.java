@@ -2,14 +2,11 @@ package terceraev.manipulacionFicheros.ej5;
 
 import java.io.*;
 import java.util.Scanner;
-
-import terceraev.ejemFILE.File;
 import terceraev.manipulacionFicheros.Utilidades;
 
 public class EliminarNif {
     static Scanner lect = new Scanner(System.in);
     public static void main(String[] args) {
-
         System.out.println("Introduce el nombre del fichero: ");
         String nombreFichero = lect.nextLine();
 
@@ -17,18 +14,17 @@ public class EliminarNif {
         String NIF = lect.nextLine();
 
         try {
-            eliminarNif(nombreFichero,NIF);
+            eliminarNif(nombreFichero, NIF);
             System.out.println("NIF eliminado correctamente");
         } catch (Exception e) {
-           System.out.println("Error al eliminar el NIF");
-        }
-        finally{
+            System.out.println("Error al eliminar el NIF");
+        } finally {
             lect.close();
-        } 
+        }
     }
 
-    public static void eliminarNif(String nombre, String NIF) throws IOException{
-      
+    public static void eliminarNif(String nombre, String NIF) throws IOException {
+
         String archivoTemporal = "temporal.txt";
 
         BufferedReader leido = null;
@@ -40,7 +36,7 @@ public class EliminarNif {
 
             String linea;
             while ((linea = leido.readLine()) != null) {
-                if (!linea.equals(NIF)) {
+                if (!linea.equals(NIF)) { 
                     escrito.write(linea);
                     escrito.newLine();
                 }
@@ -48,17 +44,11 @@ public class EliminarNif {
             System.out.println("Archivo generado correctamente.");
 
             new File(archivoTemporal).renameTo(new File(nombre));
-
-        }
-        finally {
+        } catch (IOException e) {
+            System.out.println("Error de escritura del fichero ");
+        } finally {
             Utilidades.cerrarRecursos(escrito);
             Utilidades.cerrarRecursos(leido);
-        }  
+        }
     }
-
 }
-
-
-/*   } catch(IOException e){
-            System.out.println("Error de escritura del fichero ");
-        }  */

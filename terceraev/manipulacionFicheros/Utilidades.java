@@ -19,4 +19,13 @@ public class Utilidades {
         }
     }
 
+    public static void cerrarRecursos(DataInputStream stream) {
+        try {
+            if (stream != null) stream.close();
+        } catch (IOException e) {
+            System.out.println("Error al cerrar el fichero: " + e.getMessage());
+        }
+    }
+
+
 }
