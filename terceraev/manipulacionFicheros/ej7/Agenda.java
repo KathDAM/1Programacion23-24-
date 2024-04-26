@@ -34,18 +34,20 @@ public class Agenda {
 
     // MÉTODO
     public static void escribirRegistro(Agenda agenda) {
-        DataOutputStream out = null;
+        DataOutputStream escrito = null;
     
         try {
-            out = new DataOutputStream(new FileOutputStream("agenda.dat"));
-            out.writeUTF(agenda.getNombre());
-            out.writeUTF(agenda.getDireccion());
-            out.writeUTF(agenda.getTelefono());
-            out.writeUTF(agenda.getEmail());
+            escrito = new DataOutputStream(new FileOutputStream("agenda.dat"));
+            escrito.writeUTF(agenda.getNombre());
+            escrito.writeUTF(agenda.getDireccion());
+            escrito.writeUTF(agenda.getTelefono());
+            escrito.writeUTF(agenda.getEmail());
             System.out.println("Registro agregado correctamente.");
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo.");
-        } 
+        } finally{
+            Utilidades.cerrarRecursos(escrito);
+        }
     }
     
 
