@@ -33,7 +33,7 @@ public class Agenda {
     }
 
     // MÉTODO
-    public static void escribirRegistro(Agenda agenda) {
+    public static void escribirRegistro(Agenda agenda) throws IOException {
         DataOutputStream escrito = null;
     
         try {
@@ -51,7 +51,7 @@ public class Agenda {
     }
     
 
-    public static void leerRegistros() {
+    public static void leerRegistros() throws IOException{
         DataInputStream leido = null;
 
         try {
@@ -70,5 +70,12 @@ public class Agenda {
         } finally {
             Utilidades.cerrarRecursos(leido);
         }
+    }
+
+    public static void imprimirAgenda() throws IOException {
+        DataInputStream leido = null;
+
+        
+    
     }
 }

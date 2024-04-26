@@ -1,9 +1,10 @@
 package terceraev.manipulacionFicheros.ej7;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class LeerAgenda {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner lect = new Scanner(System.in);
 
         while (true) {
