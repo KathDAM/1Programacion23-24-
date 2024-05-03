@@ -54,7 +54,7 @@ public class Conecta4 {
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j <= COLUMNS - 4; j++) {
                 if (board[i][j] == player && board[i][j+1] == player && board[i][j+2] == player && board[i][j+3] == player) {
-                    markWinningLine(i, j, i, j + 3);
+                    marcarLineaGanadora(i, j, i, j + 3);
                     return true;
                 }
             }
@@ -63,7 +63,7 @@ public class Conecta4 {
         for (int j = 0; j < COLUMNS; j++) {
             for (int i = 0; i <= ROWS - 4; i++) {
                 if (board[i][j] == player && board[i+1][j] == player && board[i+2][j] == player && board[i+3][j] == player) {
-                    markWinningLine(i, j, i + 3, j);
+                    marcarLineaGanadora(i, j, i + 3, j);
                     return true;
                 }
             }
@@ -72,7 +72,7 @@ public class Conecta4 {
         for (int i = 0; i <= ROWS - 4; i++) {
             for (int j = 0; j <= COLUMNS - 4; j++) {
                 if (board[i][j] == player && board[i+1][j+1] == player && board[i+2][j+2] == player && board[i+3][j+3] == player) {
-                    markWinningLine(i, j, i + 3, j + 3);
+                    marcarLineaGanadora(i, j, i + 3, j + 3);
                     return true;
                 }
             }
@@ -81,7 +81,7 @@ public class Conecta4 {
         for (int i = 0; i <= ROWS - 4; i++) {
             for (int j = COLUMNS - 1; j >= 3; j--) {
                 if (board[i][j] == player && board[i+1][j-1] == player && board[i+2][j-2] == player && board[i+3][j-3] == player) {
-                    markWinningLine(i, j, i + 3, j - 3);
+                    marcarLineaGanadora(i, j, i + 3, j - 3);
                     return true;
                 }
             }
@@ -89,7 +89,8 @@ public class Conecta4 {
         return false;
     }
 
-    public static boolean checkDraw(char[][] board) {
+    //Verifica si hay un empate en el juego
+    public static boolean checkearLinea(char[][] board) { //checkDraw
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
                 if (board[i][j] == EMPTY) {
@@ -100,7 +101,8 @@ public class Conecta4 {
         return true; 
     }
 
-    private void markWinningLine(int rowStart, int colStart, int rowEnd, int colEnd) {
+    //Verifica cual es la linea ganadora en el juego y sustituye la linea por *
+    private void marcarLineaGanadora(int rowStart, int colStart, int rowEnd, int colEnd) { //markWinningLine
         for (int i = rowStart; i <= rowEnd; i++) {
             for (int j = colStart; j <= colEnd; j++) {
                 board[i][j] = '*';
@@ -142,7 +144,7 @@ public class Conecta4 {
                     System.out.println("¡El jugador " + currentPlayer + " ha ganado!");
                     game.printBoard();
                     break;
-                } else if (checkDraw(game.board)) {
+                } else if (checkearLinea(game.board)) {
                     System.out.println("¡Empate!");
                     game.printBoard();
                     break;
