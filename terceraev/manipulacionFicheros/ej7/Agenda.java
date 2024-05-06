@@ -75,7 +75,21 @@ public class Agenda {
     public static void imprimirAgenda() throws IOException {
         DataInputStream leido = null;
 
-        
-    
+        try {
+            leido = new DataInputStream(new FileInputStream("agenda.dat"));
+            while (leido.available() > 0) {
+                String nombre = leido.readUTF();
+                String direccion = leido.readUTF();
+                String telefono = leido.readUTF();
+                String email = leido.readUTF();
+                System.out.println("Nombre: " + nombre +"\nDirección: " + direccion + "\nTeléfono: " + telefono + "\nEmail: " + email + "\n");
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo.");
+
+        } finally {
+            Utilidades.cerrarRecursos(leido);
+        }
     }
 }
