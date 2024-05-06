@@ -103,12 +103,19 @@ public class Conecta4 {
     }
 
     //Verifica cual es la linea ganadora en el juego y sustituye la linea por *
-    //REVISAR
-    private void marcarLineaGanadora(int rowStart, int colStart, int rowEnd, int colEnd) { //markWinningLine
-        for (int i = rowStart; i <= rowEnd; i++) {
-            for (int j = colStart; j <= colEnd; j++) {
-                board[i][j] = '*';
-            }
+    private void marcarLineaGanadora(int rowStart, int colStart, int rowEnd, int colEnd) {
+        // Mark diagonal (+ slope)
+        int rowDelta = (rowEnd - rowStart) / 3;
+        int colDelta = (colEnd - colStart) / 3;
+        for (int i = rowStart, j = colStart; i <= rowEnd && j <= colEnd; i += rowDelta, j += colDelta) {
+            board[i][j] = '*';
+        }
+
+        // Mark diagonal (- slope)
+        rowDelta = (rowEnd - rowStart) / 3;
+        colDelta = (colStart - colEnd) / 3;
+        for (int i = rowStart, j = colStart; i <= rowEnd && j >= colEnd; i += rowDelta, j -= colDelta) {
+            board[i][j] = '*';
         }
     }
 

@@ -51,10 +51,7 @@ public class Conecta4Aleatorio {
         return false;
     }
 
-
-
-
-   /* public boolean checkWin(char player) {
+    public boolean checkWin(char player) {
         // Check horizontal
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j <= COLUMNS - 4; j++) {
@@ -97,56 +94,8 @@ public class Conecta4Aleatorio {
         }
         return false;
     }
- */
 
- public boolean checkWin(char player) {
-    // Check horizontal
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j <= COLUMNS - 4; j++) {
-            if (checkLine(board[i][j], board[i][j + 1], board[i][j + 2], board[i][j + 3], player)) {
-                markWinningLine(i, j, i, j + 3);
-                return true;
-            }
-        }
-    }
-
-    // Check vertical
-    for (int j = 0; j < COLUMNS; j++) {
-        for (int i = 0; i <= ROWS - 4; i++) {
-            if (checkLine(board[i][j], board[i + 1][j], board[i + 2][j], board[i + 3][j], player)) {
-                markWinningLine(i, j, i + 3, j);
-                return true;
-            }
-        }
-    }
-
-    // Check diagonal (positive slope)
-    for (int i = 0; i <= ROWS - 4; i++) {
-        for (int j = 0; j <= COLUMNS - 4; j++) {
-            if (checkLine(board[i][j], board[i + 1][j + 1], board[i + 2][j + 2], board[i + 3][j + 3], player)) {
-                markWinningLine(i, j, i + 3, j + 3);
-                return true;
-            }
-        }
-    }
-
-    // Check diagonal (negative slope)
-    for (int i = 0; i <= ROWS - 4; i++) {
-        for (int j = 3; j < COLUMNS; j++) {
-            if (checkLine(board[i][j], board[i + 1][j - 1], board[i + 2][j - 2], board[i + 3][j - 3], player)) {
-                markWinningLine(i, j, i + 3, j - 3);
-                return true;
-            }
-        }
-    }
-
-    return false;
-}
-
-private boolean checkLine(char c1, char c2, char c3, char c4, char player) {
-    return c1 == player && c2 == player && c3 == player && c4 == player;
-}
-
+    //EMPATE
     public static boolean checkDraw(char[][] board) {
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
@@ -155,14 +104,29 @@ private boolean checkLine(char c1, char c2, char c3, char c4, char player) {
                 }
             }
         }
+
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
+                board[i][j] = '*';
+            }
+        }
         return true;
     }
 
+    //MARCA LA LINEA GANADORA
     private void markWinningLine(int rowStart, int colStart, int rowEnd, int colEnd) {
-        for (int i = rowStart; i <= rowEnd; i++) {
-            for (int j = colStart; j <= colEnd; j++) {
-                board[i][j] = '*';
-            }
+        // Mark diagonal (+ slope)
+        int rowDelta = (rowEnd - rowStart) / 3;
+        int colDelta = (colEnd - colStart) / 3;
+        for (int i = rowStart, j = colStart; i <= rowEnd && j <= colEnd; i += rowDelta, j += colDelta) {
+            board[i][j] = '*';
+        }
+
+        // Mark diagonal (- slope)
+        rowDelta = (rowEnd - rowStart) / 3;
+        colDelta = (colStart - colEnd) / 3;
+        for (int i = rowStart, j = colStart; i <= rowEnd && j >= colEnd; i += rowDelta, j -= colDelta) {
+            board[i][j] = '*';
         }
     }
 
@@ -201,27 +165,6 @@ private boolean checkLine(char c1, char c2, char c3, char c4, char player) {
             game.printBoard();
         
             int column = game.getColumn(random, currentPlayer);
-            /*if (currentPlayer == PLAYER1) {
-                while (true) {
-                    System.out.print("Elige una columna (0-3): ");
-                    try {
-                        column = scanner.nextInt();
-        
-                        if (column >= 0 && column < COLUMNS) {
-                            break;
-                        } else {
-                            System.out.println("¡Columna inválida! Debe ser un número entre 0 y 3.");
-                        }
-                    } catch (InputMismatchException e) {
-                        System.out.println("Error: debes ingresar un número entero del 0 al 3");
-                        scanner.nextLine();
-                    }
-                }
-            } else {
-                //agregar try catch, sin repetir codigo
-                column = random.nextInt(COLUMNS);
-                System.out.println("El jugador O ha elegido la columna: " + column);
-            }*/
         
             if (game.dropPiece(column, currentPlayer)) {
                 if (game.checkWin(currentPlayer)) {
