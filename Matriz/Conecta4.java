@@ -1,3 +1,4 @@
+package Matriz;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -102,6 +103,7 @@ public class Conecta4 {
     }
 
     //Verifica cual es la linea ganadora en el juego y sustituye la linea por *
+    //REVISAR
     private void marcarLineaGanadora(int rowStart, int colStart, int rowEnd, int colEnd) { //markWinningLine
         for (int i = rowStart; i <= rowEnd; i++) {
             for (int j = colStart; j <= colEnd; j++) {
