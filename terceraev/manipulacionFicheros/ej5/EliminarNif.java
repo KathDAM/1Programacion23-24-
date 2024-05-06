@@ -6,7 +6,6 @@ import terceraev.manipulacionFicheros.Utilidades;
 
 public class EliminarNif {
     static Scanner lect = new Scanner(System.in);
-
     public static void main(String[] args) {
         System.out.println("Introduce el nombre del fichero: ");
         String nombreFichero = lect.nextLine();
@@ -37,7 +36,7 @@ public class EliminarNif {
 
             String linea;
             while ((linea = leido.readLine()) != null) {
-                if (!linea.equals(NIF)) {
+                if (!linea.equals(NIF)) { 
                     escrito.write(linea);
                     escrito.newLine();
                 }

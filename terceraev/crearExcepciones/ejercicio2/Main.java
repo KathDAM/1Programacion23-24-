@@ -15,7 +15,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error al crear Profesores: " + e.getMessage());
         }
-       
     }
 }
   
