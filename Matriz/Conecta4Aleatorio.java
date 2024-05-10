@@ -115,14 +115,14 @@ public class Conecta4Aleatorio {
 
     //MARCA LA LINEA GANADORA
     private void markWinningLine(int rowStart, int colStart, int rowEnd, int colEnd) {
-        // Mark diagonal (+ slope)
+        // Mark diagonal (+ casilla)
         int rowDelta = (rowEnd - rowStart) / 3;
         int colDelta = (colEnd - colStart) / 3;
         for (int i = rowStart, j = colStart; i <= rowEnd && j <= colEnd; i += rowDelta, j += colDelta) {
             board[i][j] = '*';
         }
 
-        // Mark diagonal (- slope)
+        // Mark diagonal (- casilla)
         rowDelta = (rowEnd - rowStart) / 3;
         colDelta = (colStart - colEnd) / 3;
         for (int i = rowStart, j = colStart; i <= rowEnd && j >= colEnd; i += rowDelta, j -= colDelta) {
