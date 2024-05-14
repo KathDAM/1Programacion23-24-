@@ -1,0 +1,9 @@
+1- Crear nuevo proyecto
+2- Crear paquetes - UI
+                - Acesso a datos(1)
+                - objetos(2)
+3- Copiar en (1)DataAcessManager y DataAcessObject
+4- Eliminar en DAM referencias al training
+5- Añadir en (1) un DAO por entidad de TU app
+6- Añadir en (2) una clase por entidad de TU app
+7- Implementar un main que conecte/desconecte
