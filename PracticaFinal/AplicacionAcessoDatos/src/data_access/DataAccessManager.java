@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Properties;
 
 import static data_access.constants.Constants.*;
@@ -42,9 +41,7 @@ public class DataAccessManager implements AutoCloseable{
             singleton = new DataAccessManager();
             try{
                 singleton.cnx = createConnection();
-               
-               // singleton.cityDAO = new CityDAO(singleton.cnx);
-               
+                singleton.oficinaDAO = new OficinaDAO(singleton.cnx);
             }
             catch(Exception  e){
                 singleton = null;
@@ -108,17 +105,16 @@ public class DataAccessManager implements AutoCloseable{
     private Connection cnx; 
     
     //objeto de acceso a datos para sentencias de la tabla <code>city</code>
-   // private CityDAO cityDAO;
+    public OficinaDAO oficinaDAO;
 
     
-     @Override
+    @Override
     public void close()  {
         try{
             if(cnx!=null && !cnx.isClosed()){
                 cnx.close();
                 cnx = null;
-                //cityDAO = null;
-               
+                oficinaDAO = null;  
             }
         }catch(SQLException sqe){
             System.out.println("Error al cerrar la conexión a datos. " + sqe.getMessage());

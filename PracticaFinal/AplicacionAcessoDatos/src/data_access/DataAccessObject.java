@@ -6,7 +6,6 @@
 package data_access;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 /**
  * Clase genérica de acceso a datos
