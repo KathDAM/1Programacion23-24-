@@ -144,7 +144,7 @@ public class MenuApp {
                 eliminarPorCiudad(dam);
                 break;
             case 3:
-              //  eliminarPorTelefono(dam);
+                eliminarPorPrefijoTelefono(dam);
                 break;
             default:
                 System.out.println("Opción inválida. Inténtelo de nuevo.");
@@ -187,22 +187,16 @@ public class MenuApp {
         }
     }
 
-    /*private static void eliminarPorTelefono(DataAccessManager dam) throws SQLException {
-        String telefono = pedirString("Introduce el teléfono de la oficina: ");
-        Oficina oficina = dam.oficinaDAO.buscarOficinasPorPrefijoTelefono(telefono);
-        
-        if (oficina != null) {
-            mostrarDatosOficina(oficina);
-            if (confirmarEliminacion()) {
-                eliminarOficinaSeleccionada(dam, oficina.getCodigoOficina());
-            } else {
-                System.out.println("Operación de eliminación cancelada.");
-            }
+    private static void eliminarPorPrefijoTelefono(DataAccessManager dam) throws SQLException {
+        String prefijoTelefono = pedirString("Introduce el prefijo del teléfono de las oficinas a eliminar: ");
+        boolean eliminadas = dam.oficinaDAO.eliminarOficinasPorPrefijoTelefono(prefijoTelefono);
+        if (eliminadas) {
+            System.out.println("Las oficinas con el prefijo de teléfono " + prefijoTelefono + " han sido eliminadas.");
         } else {
-            System.out.println("No se encontró ninguna oficina con el teléfono proporcionado.");
+            System.out.println("No se encontraron oficinas con el prefijo de teléfono " + prefijoTelefono + ".");
         }
     }
-*/
+
     private static void eliminarOficinaSeleccionada(DataAccessManager dam, String valor) throws SQLException {
         boolean eliminada = dam.oficinaDAO.eliminarOficinaPorCodigo(valor);
         if (eliminada) {

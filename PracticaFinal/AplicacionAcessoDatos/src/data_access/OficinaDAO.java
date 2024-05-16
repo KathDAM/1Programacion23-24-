@@ -97,6 +97,25 @@ public class OficinaDAO extends DataAccessObject {
         }
     }
 
+    public boolean eliminarOficinasPorCiudad(String ciudad) throws SQLException {
+        String query = "DELETE FROM Oficinas WHERE Ciudad = ?";
+        try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
+            pstmt.setString(1, ciudad);
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0;
+        }
+    }
+
+    // Elimina oficinas por prefijo de teléfono
+    public boolean eliminarOficinasPorPrefijoTelefono(String prefijoTelefono) throws SQLException {
+        String query = "DELETE FROM Oficinas WHERE Telefono LIKE ?";
+        try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
+            pstmt.setString(1, prefijoTelefono + "%");
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0;
+        }
+    }
+
     public void agregarOficina(Oficina oficina) throws SQLException {
         String query = "INSERT INTO Oficinas (CodigoOficina, ciudad, pais, region, codigopostal, telefono, lineadireccion1, lineadireccion2) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
