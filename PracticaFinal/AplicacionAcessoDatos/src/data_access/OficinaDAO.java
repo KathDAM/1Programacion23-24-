@@ -20,7 +20,7 @@ public class OficinaDAO extends DataAccessObject {
     // Obtiene todas las oficinas de la base de datos
     public List<Oficina> obtenerTodasLasOficinas() throws SQLException{
         List<Oficina> oficinas = new ArrayList<>();
-        PreparedStatement stmt = cnt.prepareStatement("SELECT * FROM oficinas");
+        PreparedStatement stmt = cnt.prepareStatement("SELECT * FROM Oficinas");
         ResultSet result = stmt.executeQuery();
 
         while (result.next()) {
@@ -43,21 +43,14 @@ public class OficinaDAO extends DataAccessObject {
         
         return new Oficina(codigoOficina, ciudad, pais, region, codigoPostal, telefono, lineaDireccion1, lineaDireccion2);
     }
-
+    
     public Oficina buscarOficinaPorCodigo(String codigoOficina) throws SQLException {
-        String query = "SELECT * FROM oficinas WHERE codigo_oficina = ?";
+        String query = "SELECT * FROM Oficinas WHERE CodigoOficina = ?";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
             pstmt.setString(1, codigoOficina);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    String ciudad = rs.getString("ciudad");
-                    String pais = rs.getString("pais");
-                    String region = rs.getString("region");
-                    String codigoPostal = rs.getString("codigo_postal");
-                    String telefono = rs.getString("telefono");
-                    String lineaDireccion1 = rs.getString("linea_direccion1");
-                    String lineaDireccion2 = rs.getString("linea_direccion2");
-                    return new Oficina(codigoOficina, ciudad, pais, region, codigoPostal, telefono, lineaDireccion1, lineaDireccion2);
+                    return crearOficinaDesdeResultSet(rs);
                 } else {
                     return null; // La oficina no fue encontrada
                 }
@@ -65,8 +58,38 @@ public class OficinaDAO extends DataAccessObject {
         }
     }
 
+
+    public List<Oficina> buscarOficinasPorCiudad(String ciudad) throws SQLException {
+        List<Oficina> oficinas = new ArrayList<>();
+        String query = "SELECT * FROM Oficinas WHERE Ciudad = ?";
+        try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
+            pstmt.setString(1, ciudad);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    oficinas.add(crearOficinaDesdeResultSet(rs));
+                }
+            }
+        }
+        return oficinas;
+    }
+
+    // Busca oficina por prefijo de teléfono
+    public List<Oficina> buscarOficinasPorPrefijoTelefono(String prefijoTelefono) throws SQLException {
+        List<Oficina> oficinas = new ArrayList<>();
+        String query = "SELECT * FROM Oficinas WHERE Telefono LIKE ?";
+        try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
+            pstmt.setString(1, prefijoTelefono + "%");
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    oficinas.add(crearOficinaDesdeResultSet(rs));
+                }
+            }
+        }
+        return oficinas;
+    }
+
     public boolean eliminarOficinaPorCodigo(String codigoOficina) throws SQLException {
-        String query = "DELETE FROM oficinas WHERE codigo_oficina = ?";
+        String query = "DELETE FROM Oficinas WHERE CodigoOficina = ?";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
             pstmt.setString(1, codigoOficina);
             int rowsAffected = pstmt.executeUpdate();
@@ -75,7 +98,7 @@ public class OficinaDAO extends DataAccessObject {
     }
 
     public void agregarOficina(Oficina oficina) throws SQLException {
-        String query = "INSERT INTO oficinas (codigo_oficina, ciudad, pais, region, codigo_postal, telefono, linea_direccion1, linea_direccion2) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Oficinas (CodigoOficina, ciudad, pais, region, codigopostal, telefono, lineadireccion1, lineadireccion2) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
             pstmt.setString(1, oficina.getCodigoOficina());
             pstmt.setString(2, oficina.getCiudad());
@@ -89,38 +112,4 @@ public class OficinaDAO extends DataAccessObject {
         }
     }
 
-    public List<Oficina> buscarOficinasPorCiudad(String ciudad) throws SQLException {
-        List<Oficina> oficinas = new ArrayList<>();
-        String query = "SELECT * FROM oficinas WHERE ciudad = ?";
-        try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
-            pstmt.setString(1, ciudad);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                while (rs.next()) {
-                    oficinas.add(crearOficinaDesdeResultSet(rs));
-                }
-            }
-        }
-        return oficinas;
-    }
-
-    public Oficina buscarOficinaPorTelefono(String telefono) throws SQLException {
-        String query = "SELECT * FROM oficinas WHERE telefono = ?";
-        try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
-            pstmt.setString(1, telefono);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    String codigoOficina = rs.getString("codigo_oficina");
-                    String ciudad = rs.getString("ciudad");
-                    String pais = rs.getString("pais");
-                    String region = rs.getString("region");
-                    String codigoPostal = rs.getString("codigo_postal");
-                    String lineaDireccion1 = rs.getString("linea_direccion1");
-                    String lineaDireccion2 = rs.getString("linea_direccion2");
-                    return new Oficina(codigoOficina, ciudad, pais, region, codigoPostal, telefono, lineaDireccion1, lineaDireccion2);
-                } else {
-                    return null; // La oficina no fue encontrada
-                }
-            }
-        }
-    }
 }

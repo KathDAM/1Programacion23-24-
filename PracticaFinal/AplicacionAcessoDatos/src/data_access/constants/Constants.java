@@ -14,7 +14,7 @@ import java.io.File;
 public class Constants {
         
     //path relativo del fichero de configuración que incluye las credenciales y URL configurables
-    public final static String DB_CONFIG__FILE_NAME = "resources" + File.separator + "db.properties";
+    public final static String DB_CONFIG__FILE_NAME = "resources" + File.separator + "db.properties"; //de aqui cambiamos la ruta para que conecte en el Workbeanch
     
     public final static String MYSQL_DB_DRIVER__CLASS_NAME = "com.mysql.cj.jdbc.Driver";
     

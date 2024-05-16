@@ -64,7 +64,7 @@ public class MenuApp {
             System.out.println("Error de acceso a datos: " + sqe.getMessage());
         }
           
-        System.out.println("\n\nBye!\n\n");
+        System.out.println("\n\n¡Hasta Luego!\n\n");
         lect.close();
                 
     }
@@ -86,7 +86,7 @@ public class MenuApp {
         System.out.println("¿Cómo quieres buscar la oficina?");
         System.out.println("1) Por código de la oficina");
         System.out.println("2) Por ciudad");
-        System.out.println("3) Por teléfono");
+        System.out.println("3) Por prefijo teléfono \n");
         System.out.print("Opción: ");
     
         int opcion = elegirOpcion();
@@ -108,21 +108,21 @@ public class MenuApp {
     }
 
     private static void buscarPorCodigo(DataAccessManager dam) throws SQLException {
-        String codigoOficina = pedirString("Introduce el código de la oficina a buscar: ");
+        String codigoOficina = pedirString("Introduce el código de la oficina a buscar en formato 'XXX-XX' o 'XXX-XXX': ");
         Oficina oficina = dam.oficinaDAO.buscarOficinaPorCodigo(codigoOficina);
         mostrarDatosOficina(oficina);
     }
 
     private static void buscarPorCiudad(DataAccessManager dam) throws SQLException {
         String ciudad = pedirString("Introduce la ciudad de la oficina: ");
-        List<Oficina> oficinas = dam.oficinaDAO.buscarOficinasPorCiudad(ciudad);
-        mostrarDatosOficinas(oficinas);
+        List<Oficina> oficina = dam.oficinaDAO.buscarOficinasPorCiudad(ciudad);
+        mostrarDatosOficinas(oficina);
     }
 
     private static void buscarPorTelefono(DataAccessManager dam) throws SQLException {
-        String telefono = pedirString("Introduce el teléfono de la oficina: ");
-        Oficina oficina = dam.oficinaDAO.buscarOficinaPorTelefono(telefono);
-        mostrarDatosOficina(oficina);
+        String prefijoTelefono = pedirString("Introduce el prefijo del teléfono de la oficina(Acuerdate de poner un '+'): ");
+        List<Oficina> oficinas = dam.oficinaDAO.buscarOficinasPorPrefijoTelefono(prefijoTelefono);
+        mostrarDatosOficinas(oficinas);
     }
 
     //---------------------------------------------------------------------------------------------------------------------------
@@ -131,7 +131,7 @@ public class MenuApp {
         System.out.println("¿Cómo quieres eliminar la oficina?");
         System.out.println("1) Por código de la oficina");
         System.out.println("2) Por ciudad");
-        System.out.println("3) Por teléfono");
+        System.out.println("3) Por prefijo teléfono");
         System.out.print("Opción: ");
 
         int opcion = elegirOpcion();
@@ -144,7 +144,7 @@ public class MenuApp {
                 eliminarPorCiudad(dam);
                 break;
             case 3:
-                eliminarPorTelefono(dam);
+              //  eliminarPorTelefono(dam);
                 break;
             default:
                 System.out.println("Opción inválida. Inténtelo de nuevo.");
@@ -187,9 +187,9 @@ public class MenuApp {
         }
     }
 
-    private static void eliminarPorTelefono(DataAccessManager dam) throws SQLException {
+    /*private static void eliminarPorTelefono(DataAccessManager dam) throws SQLException {
         String telefono = pedirString("Introduce el teléfono de la oficina: ");
-        Oficina oficina = dam.oficinaDAO.buscarOficinaPorTelefono(telefono);
+        Oficina oficina = dam.oficinaDAO.buscarOficinasPorPrefijoTelefono(telefono);
         
         if (oficina != null) {
             mostrarDatosOficina(oficina);
@@ -202,7 +202,7 @@ public class MenuApp {
             System.out.println("No se encontró ninguna oficina con el teléfono proporcionado.");
         }
     }
-
+*/
     private static void eliminarOficinaSeleccionada(DataAccessManager dam, String valor) throws SQLException {
         boolean eliminada = dam.oficinaDAO.eliminarOficinaPorCodigo(valor);
         if (eliminada) {
@@ -221,7 +221,6 @@ public class MenuApp {
     //---------------------------------------------------------------------------------------------------------------------------
 
     private static void agregarOficina(DataAccessManager dam) throws SQLException {
-        System.out.print("Introduce el código de la oficina: ");
         String codigoOficina = pedirString("Introduce el código de la oficina: ");
         String ciudad = pedirString("Introduce la ciudad de la oficina: ");
         String pais = pedirString("Introduce el país de la oficina: ");
@@ -267,6 +266,7 @@ public class MenuApp {
         }
         catch(RuntimeException re){
             System.out.println("Opción inválida... Inténtelo otra vez.");
+            System.out.println("Opción: ");
             return readChoice();
         }
     }
@@ -279,7 +279,8 @@ public class MenuApp {
                 seleccion = Integer.valueOf(lect.nextLine());
                 esValido = true;
             } catch (NumberFormatException e) {
-                System.out.println("Opción inválida... Inténtelo otra vez.");
+                System.out.println("Opción inválida... Inténtelo otra vez" );
+                System.out.println("Opción: ");
             }
         } while (!esValido);
     
@@ -289,27 +290,28 @@ public class MenuApp {
     
     private static void printOptions() {
         StringBuilder sb = new StringBuilder()
-            .append("\n\n\nElija una opción:\n")
+            .append("\n\n¡BIENVENIDO AL MENÚ!:")
+            .append("\n\nElije una opción:\n")
             .append("\t1) Mostrar información de las oficinas\n")
             .append("\t2) Buscar una oficina\n")
             .append("\t3) Eliminar una oficina\n")
             .append("\t4) Agregar una nueva oficina\n")
             .append("\t5) Salir del menú\n")
-            .append("Opción: ");
+            .append("\nOpción: ");
         System.out.print(sb.toString());
     }
 
     private static void mostrarDatosOficina(Oficina oficina) {
         if (oficina != null) {
-            System.out.println("\nOficina encontrada:");
-            System.out.println("Código: " + oficina.getCodigoOficina());
-            System.out.println("Ciudad: " + oficina.getCiudad());
-            System.out.println("País: " + oficina.getPais());
-            System.out.println("Región: " + oficina.getRegion());
-            System.out.println("Cod Postal: " + oficina.getCodigoPostal());
-            System.out.println("Telefono: " + oficina.getTelefono());
-            System.out.println("Dirección 1: " + oficina.getLineaDireccion1());
-            System.out.println("Dirección 2: " + oficina.getLineaDireccion2());
+ 
+            System.out.println("\tCódigo: " + oficina.getCodigoOficina());
+            System.out.println("\tCiudad: " + oficina.getCiudad());
+            System.out.println("\tPaís: " + oficina.getPais());
+            System.out.println("\tRegión: " + oficina.getRegion());
+            System.out.println("\tCod Postal: " + oficina.getCodigoPostal());
+            System.out.println("\tTelefono: " + oficina.getTelefono());
+            System.out.println("\tDirección 1: " + oficina.getLineaDireccion1());
+            System.out.println("\tDirección 2: " + oficina.getLineaDireccion2());
         } else {
             System.out.println("\nNo se encontró ninguna oficina con el código proporcionado.");
         }
