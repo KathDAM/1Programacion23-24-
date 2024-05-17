@@ -43,7 +43,7 @@ public class OficinaDAO extends DataAccessObject {
         
         return new Oficina(codigoOficina, ciudad, pais, region, codigoPostal, telefono, lineaDireccion1, lineaDireccion2);
     }
-    
+//----------------------------------------------------------------------------------------------------------
     public Oficina buscarOficinaPorCodigo(String codigoOficina) throws SQLException {
         String query = "SELECT * FROM Oficinas WHERE CodigoOficina = ?";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
@@ -57,7 +57,6 @@ public class OficinaDAO extends DataAccessObject {
             }
         }
     }
-
 
     public List<Oficina> buscarOficinasPorCiudad(String ciudad) throws SQLException {
         List<Oficina> oficinas = new ArrayList<>();
@@ -87,7 +86,7 @@ public class OficinaDAO extends DataAccessObject {
         }
         return oficinas;
     }
-
+//----------------------------------------------------------------------------------------------------------
     public boolean eliminarOficinaPorCodigo(String codigoOficina) throws SQLException {
         String query = "DELETE FROM Oficinas WHERE CodigoOficina = ?";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
@@ -106,7 +105,6 @@ public class OficinaDAO extends DataAccessObject {
         }
     }
 
-    // Elimina oficinas por prefijo de teléfono
     public boolean eliminarOficinasPorPrefijoTelefono(String prefijoTelefono) throws SQLException {
         String query = "DELETE FROM Oficinas WHERE Telefono LIKE ?";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
@@ -115,7 +113,7 @@ public class OficinaDAO extends DataAccessObject {
             return rowsAffected > 0;
         }
     }
-
+//----------------------------------------------------------------------------------------------------------
     public void agregarOficina(Oficina oficina) throws SQLException {
         String query = "INSERT INTO Oficinas (CodigoOficina, ciudad, pais, region, codigopostal, telefono, lineadireccion1, lineadireccion2) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {

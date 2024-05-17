@@ -74,7 +74,8 @@ public class MenuApp {
     private static void mostrarInformacionOficinas(DataAccessManager dam) throws SQLException {
         List<Oficina> oficinas = dam.oficinaDAO.obtenerTodasLasOficinas();
         System.out.println("\n\nListado de oficinas:\n");
-        for(Oficina oficina : oficinas) {
+        //mostrarDatosOficinas(oficinas);
+         for(Oficina oficina : oficinas) {
             System.out.println(oficina.getCodigoOficina() + ", " + oficina.getCiudad() + ", " + oficina.getPais() + ", " + oficina.getRegion()
                             +   oficina.getCodigoPostal() + ", " + oficina.getTelefono() +  ", " + oficina.getLineaDireccion1() + ", " + oficina.getLineaDireccion2()  );
         }
@@ -86,7 +87,7 @@ public class MenuApp {
         System.out.println("¿Cómo quieres buscar la oficina?");
         System.out.println("1) Por código de la oficina");
         System.out.println("2) Por ciudad");
-        System.out.println("3) Por prefijo teléfono \n");
+        System.out.println("3) Por teléfono \n");
         System.out.print("Opción: ");
     
         int opcion = elegirOpcion();
@@ -120,7 +121,7 @@ public class MenuApp {
     }
 
     private static void buscarPorTelefono(DataAccessManager dam) throws SQLException {
-        String prefijoTelefono = pedirString("Introduce el prefijo del teléfono de la oficina(Acuerdate de poner un '+'): ");
+        String prefijoTelefono = pedirString("Introduce los primeros números del fijo o prefijo(con un '+') del teléfono de las oficinas a buscar: ");
         List<Oficina> oficinas = dam.oficinaDAO.buscarOficinasPorPrefijoTelefono(prefijoTelefono);
         mostrarDatosOficinas(oficinas);
     }
@@ -131,7 +132,7 @@ public class MenuApp {
         System.out.println("¿Cómo quieres eliminar la oficina?");
         System.out.println("1) Por código de la oficina");
         System.out.println("2) Por ciudad");
-        System.out.println("3) Por prefijo teléfono");
+        System.out.println("3) Por teléfono");
         System.out.print("Opción: ");
 
         int opcion = elegirOpcion();
@@ -153,10 +154,9 @@ public class MenuApp {
     }
     
     private static void eliminarPorCodigo(DataAccessManager dam) throws SQLException {
-        System.out.print("Introduce el código de la oficina a eliminar: ");
+        System.out.print("Introduce el código de la oficina a eliminar(formato 'XXX-XX' o 'XXX-XX'): ");
         String codigoOficina = lect.nextLine();
         Oficina oficina = dam.oficinaDAO.buscarOficinaPorCodigo(codigoOficina);
-
         if (oficina != null) {
                 mostrarDatosOficina(oficina);
             if (confirmarEliminacion()) {
@@ -177,7 +177,7 @@ public class MenuApp {
             for (Oficina oficina : oficinas) {
                 mostrarDatosOficina(oficina);
                 if (confirmarEliminacion()) {
-                    eliminarOficinaSeleccionada(dam, oficina.getCodigoOficina());
+                    eliminarOficinaSeleccionada(dam, oficina.getCiudad());
                 } else {
                     System.out.println("Operación de eliminación cancelada.");
                 }
@@ -188,12 +188,22 @@ public class MenuApp {
     }
 
     private static void eliminarPorPrefijoTelefono(DataAccessManager dam) throws SQLException {
-        String prefijoTelefono = pedirString("Introduce el prefijo del teléfono de las oficinas a eliminar: ");
-        boolean eliminadas = dam.oficinaDAO.eliminarOficinasPorPrefijoTelefono(prefijoTelefono);
-        if (eliminadas) {
-            System.out.println("Las oficinas con el prefijo de teléfono " + prefijoTelefono + " han sido eliminadas.");
+        String prefijoTelefono = pedirString("Introduce los primeros números del fijo o prefijo(con un '+') del teléfono de las oficinas a eliminar: ");
+        //prefijoTelefono = "+" + prefijoTelefono; // Agregar el signo '+' al prefijo
+        List<Oficina> oficinas = dam.oficinaDAO.buscarOficinasPorPrefijoTelefono(prefijoTelefono);
+        
+        if (!oficinas.isEmpty()) {
+            System.out.println("\nOficinas encontradas con el teléfono " + prefijoTelefono + ":");
+            for (Oficina oficina : oficinas) {
+                mostrarDatosOficina(oficina);
+                if (confirmarEliminacion()) {
+                    eliminarOficinaSeleccionada(dam, oficina.getCodigoOficina());
+                } else {
+                    System.out.println("Operación de eliminación cancelada para la oficina con números " + oficina.getTelefono() + ".");
+                }
+            }
         } else {
-            System.out.println("No se encontraron oficinas con el prefijo de teléfono " + prefijoTelefono + ".");
+            System.out.println("\nNo se encontraron oficinas con los números de teléfono " + prefijoTelefono + ".");
         }
     }
 
@@ -219,7 +229,7 @@ public class MenuApp {
         String ciudad = pedirString("Introduce la ciudad de la oficina: ");
         String pais = pedirString("Introduce el país de la oficina: ");
         String codPostal = pedirString("Introduce el código postal de la oficina: ");
-        String telefono = pedirString("Introduce el teléfono de la oficina: ");
+        String telefono = pedirString("Introduce el teléfono de la oficina con prefijo y un '+' delante: ");
         String lineaDireccion1 = pedirString("Introduce la línea de dirección 1 de la oficina: ");
        // La región y la línea de dirección 2 pueden ser nulas
         System.out.print("Introduce la región de la oficina (puede ser nulo): ");
@@ -297,7 +307,6 @@ public class MenuApp {
 
     private static void mostrarDatosOficina(Oficina oficina) {
         if (oficina != null) {
- 
             System.out.println("\tCódigo: " + oficina.getCodigoOficina());
             System.out.println("\tCiudad: " + oficina.getCiudad());
             System.out.println("\tPaís: " + oficina.getPais());
@@ -306,9 +315,9 @@ public class MenuApp {
             System.out.println("\tTelefono: " + oficina.getTelefono());
             System.out.println("\tDirección 1: " + oficina.getLineaDireccion1());
             System.out.println("\tDirección 2: " + oficina.getLineaDireccion2());
-        } else {
+        } /*else {
             System.out.println("\nNo se encontró ninguna oficina con el código proporcionado.");
-        }
+        }*/
     }
 
     private static void mostrarDatosOficinas(List<Oficina> oficinas) {
