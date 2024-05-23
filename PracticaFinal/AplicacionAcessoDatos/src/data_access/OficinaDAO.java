@@ -128,5 +128,23 @@ public class OficinaDAO extends DataAccessObject {
             pstmt.executeUpdate();
         }
     }
+    
+//----------------------------------------------------------------------------------------------------------
+   
+public boolean actualizarOficina(Oficina oficina) throws SQLException {
+    String query = "UPDATE Oficinas SET Ciudad = ?, Pais = ?, Region = ?, CodigoPostal = ?, Telefono = ?, LineaDireccion1 = ?, LineaDireccion2 = ? WHERE CodigoOficina = ?";
+    try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
+        pstmt.setString(1, oficina.getCiudad());
+        pstmt.setString(2, oficina.getPais());
+        pstmt.setString(3, oficina.getRegion());
+        pstmt.setString(4, oficina.getCodigoPostal());
+        pstmt.setString(5, oficina.getTelefono());
+        pstmt.setString(6, oficina.getLineaDireccion1());
+        pstmt.setString(7, oficina.getLineaDireccion2());
+        pstmt.setString(8, oficina.getCodigoOficina());
+        int rowsAffected = pstmt.executeUpdate();
+        return rowsAffected > 0;
+    }
+}
 
 }
