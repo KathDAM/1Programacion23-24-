@@ -43,7 +43,7 @@ public class OficinaDAO extends DataAccessObject {
         
         return new Oficina(codigoOficina, ciudad, pais, region, codigoPostal, telefono, lineaDireccion1, lineaDireccion2);
     }
-    
+//----------------------------------------------------------------------------------------------------------
     public Oficina buscarOficinaPorCodigo(String codigoOficina) throws SQLException {
         String query = "SELECT * FROM Oficinas WHERE CodigoOficina = ?";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
@@ -57,7 +57,6 @@ public class OficinaDAO extends DataAccessObject {
             }
         }
     }
-
 
     public List<Oficina> buscarOficinasPorCiudad(String ciudad) throws SQLException {
         List<Oficina> oficinas = new ArrayList<>();
@@ -87,7 +86,7 @@ public class OficinaDAO extends DataAccessObject {
         }
         return oficinas;
     }
-
+//----------------------------------------------------------------------------------------------------------
     public boolean eliminarOficinaPorCodigo(String codigoOficina) throws SQLException {
         String query = "DELETE FROM Oficinas WHERE CodigoOficina = ?";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
@@ -106,7 +105,6 @@ public class OficinaDAO extends DataAccessObject {
         }
     }
 
-    // Elimina oficinas por prefijo de teléfono
     public boolean eliminarOficinasPorPrefijoTelefono(String prefijoTelefono) throws SQLException {
         String query = "DELETE FROM Oficinas WHERE Telefono LIKE ?";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
@@ -115,7 +113,7 @@ public class OficinaDAO extends DataAccessObject {
             return rowsAffected > 0;
         }
     }
-
+//----------------------------------------------------------------------------------------------------------
     public void agregarOficina(Oficina oficina) throws SQLException {
         String query = "INSERT INTO Oficinas (CodigoOficina, ciudad, pais, region, codigopostal, telefono, lineadireccion1, lineadireccion2) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
@@ -130,5 +128,23 @@ public class OficinaDAO extends DataAccessObject {
             pstmt.executeUpdate();
         }
     }
+    
+//----------------------------------------------------------------------------------------------------------
+   
+public boolean actualizarOficina(Oficina oficina) throws SQLException {
+    String query = "UPDATE Oficinas SET Ciudad = ?, Pais = ?, Region = ?, CodigoPostal = ?, Telefono = ?, LineaDireccion1 = ?, LineaDireccion2 = ? WHERE CodigoOficina = ?";
+    try (PreparedStatement pstmt = cnt.prepareStatement(query)) {
+        pstmt.setString(1, oficina.getCiudad());
+        pstmt.setString(2, oficina.getPais());
+        pstmt.setString(3, oficina.getRegion());
+        pstmt.setString(4, oficina.getCodigoPostal());
+        pstmt.setString(5, oficina.getTelefono());
+        pstmt.setString(6, oficina.getLineaDireccion1());
+        pstmt.setString(7, oficina.getLineaDireccion2());
+        pstmt.setString(8, oficina.getCodigoOficina());
+        int rowsAffected = pstmt.executeUpdate();
+        return rowsAffected > 0;
+    }
+}
 
 }
